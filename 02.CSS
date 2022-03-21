@@ -364,6 +364,7 @@
     .group6 li{
         width: 400px;
         height: 330px;
+        list-style-type:none;
     }
     .pic6{
         width: 120px;
