@@ -251,13 +251,6 @@ header a:hover{
     background: rgb(73, 69, 69);
     display: block;
 }
-.cash_flow{
-    width: 1200px;
-    margin: auto;
-    margin-top: 70px;
-    display: flex;
-    flex-wrap: wrap;
-}
 .cash_flow_pic{
     width: 500px;
     padding-left: 100px;
@@ -309,13 +302,6 @@ header a:hover{
 .more_cash_flow a{
     text-decoration: none;
     color: #0061ff;
-}
-.member_marking{
-    width: 1200px;
-    margin: auto;
-    margin-top: 100px;
-    display: flex;
-    flex-wrap: wrap;
 }
 .marking_test{
     width: 500px;
@@ -370,13 +356,6 @@ header a:hover{
 }
 .marking_pic img{
     width: 100%;
-}
-.shop_manage{
-    width: 1200px;
-    margin: auto;
-    margin-top: 100px;
-    display: flex;
-    flex-wrap: wrap;
 }
 .shop_manage_pic{
     width: 450px;
@@ -513,13 +492,6 @@ header a:hover{
 .additional_brand_recommen_title span{
     color: #0061ff;
 }
-/* .brand_introduce{
-    width: 1000px;
-    margin: auto;
-    padding: 0px 100px;
-    display: flex;
-    flex-wrap: wrap;
-} */
 .brand_mark{
     width: 1000px;
     margin: auto;
