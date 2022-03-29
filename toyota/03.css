@@ -39,6 +39,7 @@
 }
 .car_picture{
     width: 690px;
+    height: 440px;
     position: relative;
     z-index: 1;
     left: 175px;
@@ -46,6 +47,7 @@
 }
 .car_picture img{
     width: 100%;
+    height: 100%;
 }
 .background_decorate{
     width: 350px;
@@ -133,6 +135,7 @@
 }
 .safety_introduce{
     width: 350px;
+    height: 328px;
     background-color: black;
     color: #fff;
     position: relative;
@@ -231,7 +234,7 @@
     padding:25px 0px  ;
 }
 .comfortable_space_text{
-    padding: 20px 30px;
+    padding: 12px 30px;
 }
 .comfortable_space h3{
     font-size: 25px;
@@ -250,6 +253,7 @@
 }
 .enjoy_picture img{
     width: 100%;
+    height: 100%;
 }
 .comfortable_space_background_decorate{
     width: 350px;
@@ -339,6 +343,7 @@
 }
 .humanized_design_introduce{
     width: 350px;
+    height: 388px;
     background-color: black;
     color: #fff;
     position: relative;
@@ -420,7 +425,7 @@
 }
 .special_dsign_introduce{
     width: 350px;
-    height: 350px;
+    height: 337px;
     background-color: black;
     color: #fff;
     position: absolute;
