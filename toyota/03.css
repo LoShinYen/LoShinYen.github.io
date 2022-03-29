@@ -93,6 +93,8 @@
     height: 5px;
     background-color:red ;
     border-radius: 100%;
+    position: relative;
+    z-index: 3;
 }
 .function_youtobe_mark{
     width: 60px;
