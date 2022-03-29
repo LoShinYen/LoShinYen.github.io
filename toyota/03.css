@@ -89,7 +89,10 @@
     margin-top: 10px;
 }
 .intdroduce_details p::before{
-    
+    width: 5px;
+    height: 5px;
+    background-color:red ;
+    border-radius: 100%;
 }
 .function_youtobe_mark{
     width: 60px;
