@@ -122,9 +122,14 @@
 }
 .safety_youtobe_mark{
     width: 60px;
+    height: 35px;
     position: relative;
     z-index: 2;
     top: 370px;
+}
+.safety_youtobe_mark img{
+    width: 100%;
+    height: 100%;
 }
 .safety_introduce{
     width: 350px;
@@ -290,10 +295,15 @@
 }
 .comfortable_space_youtobe_mark{
     width: 60px;
+    height: 35px;
     position: relative;
     left: 500px;
     top: -40px;
     z-index: 2;
+}
+.comfortable_space_youtobe_mark img{
+    width: 100%;
+    height: 100%;
 }
 .humanized_design{
     width: 1000px;
@@ -318,9 +328,14 @@
 }
 .humanized_design_youtobe_mark{
     width: 60px;
+    height: 35px;
     position: relative;
     z-index: 2;
     top: 370px;
+}
+.humanized_design_youtobe_mark img{
+    width: 100%;
+    height: 100%;
 }
 .humanized_design_introduce{
     width: 350px;
@@ -403,7 +418,7 @@
     left: 0px;
     right: 0px;
 }
-.control_function_introduce{
+.special_dsign_introduce{
     width: 350px;
     height: 350px;
     background-color: black;
@@ -414,21 +429,21 @@
     font-size: 15px;
     line-height: 1.5;
 }
-.intdroduce_title{
+.special_dsign_title{
     font-size: 40px;
     font-weight: 700px  ;
     background-color: rgb(199, 40, 40);
     text-align: center;
     padding:25px 0px  ;
 }
-.intdroduce_text{
+.special_dsign_text{
     padding: 20px 30px;
 }
-.intdroduce_text h3{
+.special_dsign_text h3{
     font-size: 25px;
     font-weight: 700;
 }
-.intdroduce_text p{
+.special_dsign_text p{
     font-size: 20px;
     color: rgba(255, 255, 255, 0.589);
 }
@@ -439,10 +454,10 @@
     left: 175px;
     top: 110px;
 }
-.car_picture img{
+.special_dsign_picture img{
     width: 100%;
 }
-.background_decorate{
+.special_dsign_background_decorate{
     width: 350px;
     height: 350px;
     background-color: rgba(243, 241, 241, 0.822);
@@ -450,7 +465,7 @@
     top: -400px;
     left: 600px;
 }
-.intdroduce_details{
+.special_dsign_details{
     width: 670px;
     height: 240px;
     background-color: rgb(233, 231, 231);
@@ -462,31 +477,36 @@
     font-size: 15px;
     line-height: 1.1;
 }
-.intdroduce_details span{
+.special_dsign_details span{
     color: rgb(214, 14, 14);
     font-size: 18px;
     font-weight: 700;
 }
-.intdroduce_details ul{
+.special_dsign_details ul{
     padding-top: 10px;
 }
-.intdroduce_details li{
+.special_dsign_details li{
     margin-bottom: 10px;
 }
-.intdroduce_details h3{
+.special_dsign_details h3{
     display: inline-block;
-    padding: 5px      ;
+    padding: 5px;
     font-size: 15px;
     background-color: black;
     color: #fff;
 }
-.intdroduce_details p{
+.special_dsign_details p{
     margin-top: 10px;
 }
-.function_youtobe_mark{
+.special_dsign_youtobe_mark{
     width: 60px;
+    height: 35px;
     position: relative;
     left: 500px;
     top: -40px;
     z-index: 2;
+}
+.special_dsign_youtobe_mark{
+    width: 100%;
+    height: 100%;
 }
