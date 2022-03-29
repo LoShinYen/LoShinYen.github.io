@@ -16,12 +16,23 @@
     top: 0px;
     font-size: 15px;
     line-height: 1.5;
+
 }
 .intdroduce_title{
     font-size: 40px;
     font-weight: 700  ;
     background-color: rgb(199, 40, 40);
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+.number_order{
+    display: inline-block;
+    writing-mode: vertical-lr;
+    font-size: 100px;
+    font-weight: lighter;
+}
+.intdroduce_title h2{
     padding:25px 0px;
 }
 .intdroduce_text{
@@ -85,14 +96,7 @@
     background-color: black;
     color: #fff;
 }
-.intdroduce_details h3 span{
-    display: inline-block;
-    width: 5px;
-    height: 5px;
-    background-color: red;
-    border-radius: 100%;
-    text-align: center;
-}
+
 .intdroduce_details p{
     margin-top: 10px;
 }
@@ -113,7 +117,7 @@
     height: 750px;
     position: relative;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -150,11 +154,15 @@
     font-size: 15px;
 }
 .safety_introduce_title{    
-    height: 60px;
+    height: 130px;
     background-color: rgb(199, 40, 40);
     font-size: 40px;
     font-weight: 700;
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+.safety_introduce_title h2{
     padding: 35px 0px 35px 10px ;
 }
 .safety_introduce_text{
@@ -185,7 +193,7 @@
     position: relative;
     z-index: 2;
     left: 300px;
-    top: 120px;
+    top: 20px;
     background-color: rgb(233, 231, 231);
 }
 .safety_details span{
@@ -216,7 +224,7 @@
     display: flex;
     flex-wrap: wrap;
     position: relative;
-    margin-top: 250px;
+    margin-top: 50px;
 }
 .comfortable_space_introduce{
     width: 350px;
@@ -234,6 +242,10 @@
     font-weight: 700  ;
     background-color: rgb(199, 40, 40);
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+.comfortable_space_title h2{
     padding:25px 0px  ;
 }
 .comfortable_space_text{
@@ -318,7 +330,7 @@
     height: 750px;
     position: relative;
     margin: auto;
-    margin-top: 250px;
+    margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -355,11 +367,15 @@
     font-size: 15px;
 }
 .humanized_design_title{    
-    height: 60px;
+    height: 130px;
     background-color: rgb(199, 40, 40);
     font-size: 40px;
     font-weight: 700;
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+.humanized_design_title h2{
     padding: 35px 0px 35px 10px ;
 }
 .humanized_design_text{
@@ -390,7 +406,7 @@
     position: relative;
     z-index: 2;
     left: 300px;
-    top: 120px;
+    top: 20px;
     background-color: rgb(233, 231, 231);
 }
 .humanized_design_details span{
@@ -421,7 +437,7 @@
     display: flex;
     flex-wrap: wrap;
     position: relative;
-    margin-top: 250px;
+    margin-top: 50px;
 }
 .special_dsign_introduce{
     width: 350px;
@@ -439,6 +455,10 @@
     font-weight: 700  ;
     background-color: rgb(199, 40, 40);
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+.special_dsign_title h2{
     padding:25px 0px  ;
 }
 .special_dsign_text{
@@ -510,4 +530,10 @@
     left: 500px;
     top: -40px;
     z-index: 2;
+}
+.decorate{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: red;
 }
