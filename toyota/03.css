@@ -32,13 +32,13 @@
     font-size: 100px;
     font-weight: lighter;
 }
-.intdroduce_title h2{
+.intdroduce_title h1{
     padding:25px 0px;
 }
 .intdroduce_text{
     padding: 27px 30px;
 }
-.intdroduce_text h3{
+.intdroduce_text h2{
     font-size: 25px;
     font-weight: 700;
 }
@@ -162,13 +162,13 @@
     display: flex;
     flex-wrap: wrap;
 }
-.safety_introduce_title h2{
+.safety_introduce_title h1{
     padding: 35px 0px 35px 10px ;
 }
 .safety_introduce_text{
     padding: 20px 30px;
 }
-.safety_introduce_text h3{
+.safety_introduce_text h2{
     font-size: 25px;
     font-weight: 700;
 }
@@ -245,13 +245,13 @@
     display: flex;
     flex-wrap: wrap;
 }
-.comfortable_space_title h2{
+.comfortable_space_title h1{
     padding:25px 0px  ;
 }
 .comfortable_space_text{
     padding: 12px 30px;
 }
-.comfortable_space h3{
+.comfortable_space h2{
     font-size: 25px;
     font-weight: 700;
 }
@@ -280,7 +280,7 @@
 }
 .comfortable_space_details{
     width: 670px;
-    height: 300px;
+    height: 270px;
     background-color: rgb(233, 231, 231);
     position: absolute;
     z-index: 2;
@@ -375,13 +375,13 @@
     display: flex;
     flex-wrap: wrap;
 }
-.humanized_design_title h2{
+.humanized_design_title h1{
     padding: 35px 0px 35px 10px ;
 }
 .humanized_design_text{
     padding: 20px 30px;
 }
-.humanized_design_text h3{
+.humanized_design_text h2{
     font-size: 25px;
     font-weight: 700;
 }
@@ -458,13 +458,13 @@
     display: flex;
     flex-wrap: wrap;
 }
-.special_dsign_title h2{
+.special_dsign_title h1{
     padding:25px 0px  ;
 }
 .special_dsign_text{
     padding: 20px 30px;
 }
-.special_dsign_text h3{
+.special_dsign_text h2{
     font-size: 25px;
     font-weight: 700;
 }
