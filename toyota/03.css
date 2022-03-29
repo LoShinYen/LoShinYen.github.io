@@ -85,6 +85,13 @@
     background-color: black;
     color: #fff;
 }
+.intdroduce_details span{
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background-color: red;
+    border-radius: 100%;
+}
 .intdroduce_details p{
     margin-top: 10px;
 }
