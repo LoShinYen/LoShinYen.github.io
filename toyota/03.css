@@ -152,7 +152,7 @@
     color: #fff;
     position: relative;
     z-index: 2;
-    left: 590px;
+    left: 540px;
     line-height: 1.5;
     font-size: 15px;
 }
@@ -368,7 +368,7 @@
     color: #fff;
     position: relative;
     z-index: 2;
-    left: 590px;
+    left: 540px;
     line-height: 1.5;
     font-size: 15px;
 }
@@ -543,5 +543,5 @@
     width: 10px;
     height: 10px;
     background-color: red;
-    
+
 }
