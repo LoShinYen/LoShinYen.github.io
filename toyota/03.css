@@ -1,5 +1,5 @@
 .car_control_function{
-    width: 1000px;
+    width: 950px;
     height: 800px;
     margin: auto;
     display: flex;
@@ -114,7 +114,7 @@
     cursor: pointer;
 }
 .car_safety{
-    width: 1000px;
+    width: 950px;
     height: 750px;
     position: relative;
     margin: auto;
@@ -152,7 +152,7 @@
     color: #fff;
     position: relative;
     z-index: 2;
-    left: 500px;
+    left: 590px;
     line-height: 1.5;
     font-size: 15px;
 }
@@ -195,7 +195,7 @@
     padding: 20px;
     position: relative;
     z-index: 2;
-    left: 300px;
+    left: 339px;
     top: 20px;
     background-color: rgb(233, 231, 231);
 }
@@ -221,7 +221,7 @@
     margin-top: 10px;
 }
 .comfortable_space{
-    width: 1000px;
+    width: 950px;
     height: 800px;
     margin: auto;
     display: flex;
@@ -331,7 +331,7 @@
     cursor: pointer;
 }
 .humanized_design{
-    width: 1000px;
+    width: 950px;
     height: 750px;
     position: relative;
     margin: auto;
@@ -368,7 +368,7 @@
     color: #fff;
     position: relative;
     z-index: 2;
-    left: 500px;
+    left: 590px;
     line-height: 1.5;
     font-size: 15px;
 }
@@ -411,7 +411,7 @@
     padding: 20px;
     position: relative;
     z-index: 2;
-    left: 300px;
+    left: 339px;
     top: 20px;
     background-color: rgb(233, 231, 231);
 }
@@ -437,7 +437,7 @@
     margin-top: 10px;
 }
 .special_dsign{
-    width: 1000px;
+    width: 950px;
     height: 800px;
     margin: auto;
     display: flex;
