@@ -19,6 +19,10 @@
     text-decoration: none;
     color: #fff;
 }
+.hb{
+    display: flex;
+    align-items: center;
+}
 .header-top a:hover{
     color: #0061ff;
 }
