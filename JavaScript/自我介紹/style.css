@@ -48,7 +48,10 @@
     content: ":";
 }
 .test p {
-    text-indent: 10px;
+    text-indent: 12px;
+}
+.test .email p{
+    text-indent: 8.5px;
 }
 #selfie-picture{
     width: 100%;
