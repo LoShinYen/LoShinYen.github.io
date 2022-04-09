@@ -5,19 +5,133 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .box{
+            width: 50%;
+            margin: 0 auto;
+            padding: 0 5%;
+            border: 1px solid #aaa;
+            font-size: 20px;
+        }
+        .name
+        {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgb(93, 155, 237);
+        }
+        .email{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgb(93, 155, 237);
+        }
+        .school{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgb(93, 155, 237);
+        }
+        .intresting{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgb(93, 155, 237);
+        }
+        .picture{
+            width: 50%;
+            margin: 0 auto;
+        }
+        .test h3::after{
+            content: ":";
+        }
+        .test p {
+            text-indent: 10px;
+        }
+        #selfie-picture{
+            width: 100%;
+            aspect-ratio: 1108/1478;
+            vertical-align: top;
+        }
+        .many_picture{
+            width: 100%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            padding-top: 10%;
+        }
+        .many_picture img{
+            width: 33%;
+        }
+        .many_picture :nth-of-type(1){
+            aspect-ratio: 1108/1478;
+        }
+        .many_picture :nth-of-type(2) {
+            aspect-ratio: 750/1334;
+        }
+        .many_picture :nth-of-type(3) {
+            aspect-ratio: 870/1883;
+        }
+        
+
+    </style>
 </head>
 <body>
-    還在研究
     <div class="box">
-        <div class="box_picture">
-            <img src="" alt="">
+        <div class="picture">
+            <img id="selfie-picture">
         </div>
-        <div class="box_test">
-            <div class="name"></div>
-            <div class="email"></div>
-            <div class="school"></div>
-            <div class="interesting"></div>
+        <div class="test">
+            <div class="name">
+                <h3>姓名</h3>
+                <p></p>
+            </div>
+            <div class="email">
+                <h3>email</h3>
+                <p></p>
+            </div>
+            <div class="school">
+                <h3>學系</h3>
+                <p></p>
+            </div>
+            <div class="intresting">
+                <h3>興趣</h3>
+                <p></p>
+            </div>
+        </div>
+        <div class="many_picture">
+            <img>
+            <img>
+            <img>
         </div>
     </div>
+
+
+    <script>
+        let selfiePicture = document.getElementById("selfie-picture")
+        let imgUrl ="https://raw.githubusercontent.com/LoShinYen/FileStorages/main/picture.jpg"
+        // let h3 = document.querySelectorAll("h3")
+        let p = document.querySelectorAll("p")
+        let many_pic = document.querySelectorAll('.many_picture img')
+        selfiePicture.setAttribute("src",imgUrl)
+        
+        // const titleAwarry = ["姓名","email","學系","興趣"]
+        const mainAwarry = ["羅世晏","bbbbbbb8910@gmail","航海","看書"]
+        const imgAwarry = [
+        "https://raw.githubusercontent.com/LoShinYen/FileStorages/main/S__5750791.jpg",
+        "https://raw.githubusercontent.com/LoShinYen/FileStorages/main/S__5808146.jpg",
+        "https://raw.githubusercontent.com/LoShinYen/FileStorages/main/S__5750792.jpg"]
+
+        // titlteAwarry.forEach((title,index) => {
+        //     console.log(h3[index].innerText = titleAwarry[index]);
+        // });
+        mainAwarry.forEach((main,index) => {
+            console.log(p[index].innerText = mainAwarry[index]);
+        });
+        imgAwarry.forEach((pic,index) => {
+            console.log(many_pic[index].setAttribute("src",imgAwarry[index]));
+        });
+
+    </script>
 </body>
 </html>
