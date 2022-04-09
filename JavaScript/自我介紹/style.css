@@ -1,0 +1,82 @@
+.box{
+    width: 50%;
+    margin: 0 auto;
+    padding: 0 5%;
+    border: 1px solid #aaa;
+    font-size: 20px;
+    border-radius: 20px;
+    background-color: rgb(173, 199, 244);
+    line-height: 1.5;
+    font-weight: 700;
+}
+.test{
+    padding: 5% 0px;
+}
+.name
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(93, 155, 237);
+}
+.email{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(93, 155, 237);
+}
+.school{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(93, 155, 237);
+}
+.intresting{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(93, 155, 237);
+}
+.picture{
+    width: 50%;
+    margin: 0 auto;
+}
+.picture img{
+    border-radius: 20px;
+}
+.test h3::after{
+    content: ":";
+}
+.test p {
+    text-indent: 10px;
+}
+#selfie-picture{
+    width: 100%;
+    aspect-ratio: 1108/1478;
+    vertical-align: top;
+}
+.many_picture{
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 2%;
+}
+.many_picture img{
+    width: 33%;
+    border-radius: 20px;
+}
+.many_picture :nth-of-type(1){
+    aspect-ratio: 1108/1478;
+}
+.many_picture :nth-of-type(2) {
+    aspect-ratio: 750/1334;
+}
+.many_picture :nth-of-type(3) {
+    aspect-ratio: 870/1883;
+}
+@media screen and (max-width:767px) {
+    .box{
+        font-size: 12px;
+    }
+}
