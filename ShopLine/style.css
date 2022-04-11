@@ -10,9 +10,7 @@
     /* padding: 0px 6.25%; */
 }
 .header-top{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
+
     background-color: #00142d;
 }
 .header-top a{
@@ -26,9 +24,9 @@
 .header-top a:hover{
     color: #0061ff;
 }
-.main-header{
+.max-main-header{
     display: flex;
-    padding: 20px 40px ;
+    padding: 20px 6.25% ;
 }
 .logo{
     text-indent: 101%;
@@ -67,14 +65,12 @@
 }
 #menu-control:checked ~ .header .main-custom-service
 {
-    display: block;
+    transform: none;
 }
 #open-shop-data-control{
     display: none;
     position: absolute;
 }
-
-
 .main-nav li p:hover{
     color: #0061ff;
 }
@@ -325,9 +321,6 @@ input{
     text-decoration: none;
     background-color: #d8f8ed;
 }
-/* .covid19 a:hover{
-    background-color: #26262685;
-} */
 .footer_end{
     background-color: #00142d;
     color: #fff;
@@ -378,7 +371,7 @@ input{
     .logo img{
         width: 100%;
     }
-    .main-header{
+    .max-main-header{
         justify-content: space-between;
         padding: 15px 6.25%;
     }
@@ -388,7 +381,9 @@ input{
         top: 100%;
         right: 0%;
         background-color: rgb(249, 249, 249);
-        display:none;
+        display:block;
+        transform: translateX(100%);
+        transition: .5s;
     }
     .main-nav ul li{
         border-bottom: 1px solid black;
@@ -447,11 +442,14 @@ input{
     .hb{
         width: 15px;
     }
+    .max-width{
+        max-width: 1400px;
+    }
 }
 /* RWD第二版 */
 @media screen and (min-width:992px) {
     .header-top{
-        padding: 10px 90px 10px 0px ;
+        /* padding: 10px 6.25% ; */
     }
     .langue{
         padding-right: 10px;
@@ -464,27 +462,23 @@ input{
         display: inline-block;
         font-size: 15px;
     }
-    .main-header{
-        padding: 15px 6.25%; 
-        align-items: center;
-    }
     .logo{
-        flex-grow: 1;
+        width: 16%;
     }
     .logo img{
         width: 100%;
         max-width: 170px; ;
     }
     .main-custom-service{
+        width: 84%;
         display: flex;
-        flex-grow: 10;
         justify-content: space-between;
     }
     .main-nav ul{
         display: flex;
     }   
     .main-nav ul li{
-        padding: 10px 10px ;
+        padding: 25px 7px 0px;
     }
     .hb{
         display: none;
@@ -983,6 +977,19 @@ input{
     }
 }
 @media screen and (min-width:992px) {
+    .max-width{
+        max-width: 1400px;
+        margin: auto;
+    }
+    .max-header-top{
+        width: 100%;
+        padding: 10px 6.25%;
+        box-sizing: border-box;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
     .web-sample-introduce{
         display: flex;
         flex-wrap: wrap;
@@ -1215,7 +1222,6 @@ input{
     .icon ul{
         display: flex;
         flex-wrap: wrap;
-        
     }
     .icon ul li{
         width: 15%;
@@ -1230,5 +1236,17 @@ input{
         color:#748094;
         margin-bottom: 0;
         padding: 0;
+    }
+}
+@media screen and (min-width:1400px) {
+    .max-header-top{
+        width: 1400px;
+        padding:10px 87.5px ;
+    }
+    .max-main-header{
+        width: 1400px;
+        margin: auto;
+        padding: 20px 87.5px;
+        box-sizing: border-box;
     }
 }
