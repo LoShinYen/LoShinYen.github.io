@@ -69,6 +69,15 @@
 {
     display: block;
 }
+#open-shop-data-control{
+    display: none;
+    position: absolute;
+}
+
+
+.main-nav li p:hover{
+    color: #0061ff;
+}
 .web-sample-introduce{
     margin: auto;
     padding: 50px 6.25%;
@@ -253,6 +262,9 @@
     border-radius: 50px;
     border: 0px;
 }
+.worldwide-btn:hover{
+    background-color: #0747a6;
+}
 .severse_all_list{
     padding: 50px 6.25% 20px 6.25%;
     background-color: #00142d;
@@ -313,9 +325,9 @@ input{
     text-decoration: none;
     background-color: #d8f8ed;
 }
-.covid19 a :hover{
-    background-color: #0f0f0f85;
-}
+/* .covid19 a:hover{
+    background-color: #26262685;
+} */
 .footer_end{
     background-color: #00142d;
     color: #fff;
@@ -375,16 +387,27 @@ input{
         position: absolute;
         top: 100%;
         right: 0%;
-        background-color: rgb(237, 233, 233);
+        background-color: rgb(249, 249, 249);
         display:none;
     }
     .main-nav ul li{
         border-bottom: 1px solid black;
         margin: 0 5%;
-    }
-    .main-nav a{
-        display: block;
         padding: 20px 0px 20px 0px;
+    }
+    #open-shop-data-control:checked ~ .header .open-shop-data{
+        display: block;
+    }
+    .open-shop-data{
+        display: none;
+        z-index: 3;
+        position: flex;
+        background-color: rgb(249, 249, 249);;
+        top: 10%;
+        line-height: 1.5;
+    }
+    .open-shop-data a{
+        display: block;
     }
     .main-btn{
         padding: 30px 0px 70px 0px;
@@ -465,6 +488,12 @@ input{
     }
     .hb{
         display: none;
+    }
+    .open-shop-data{
+        display: none;
+    }
+    #open-shop-data-control:hover ~ .header .open-shop-data{
+        display: block;
     }
 }
 /* 切版 */
