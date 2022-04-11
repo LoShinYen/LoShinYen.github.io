@@ -495,6 +495,37 @@ input{
     #open-shop-data-control:hover ~ .header .open-shop-data{
         display: block;
     }
+    #open-shop-data-control:link ~ .header .open-shop-data{
+        display: block;
+    }
+    .open-shop-data-title{
+        border-bottom: 1px solid rgb(197, 196, 196);
+    }
+    .open-shop-data{
+        width: 46%;
+        position: absolute;
+        background-color: #fff;
+        top: 100%;
+        padding: 10px 20px;
+    }
+    .open-shop-date span{
+        font-size: 20px;
+    }
+    .open-shop-data p{
+        padding-top: 20px;
+        padding-bottom: 20px;
+        width: 75%;
+    }
+    .open-shop-data-contain li{
+        width: 33%;
+    }
+    .open-shop-data-contain p{
+        border-bottom: 1px solid rgb(197, 196, 196);
+    }
+    .open-shop-data-contain li a{
+        display:block;
+        line-height: 2;
+    }
 }
 /* 切版 */
 @media screen and (max-width:767px) {
