@@ -71,6 +71,18 @@
     display: none;
     position: absolute;
 }
+.open-shop-data{
+    display: none;
+}
+.program-fee{
+    display: none;
+}
+.more-program-data{
+    display: none;
+}
+.other-resource-data{
+    display: none;
+}
 .main-nav li p:hover{
     color: #0061ff;
 }
@@ -203,7 +215,6 @@
     display: flex;
     flex-wrap: wrap;
 }
-
 .case-picture img{
     width: 60%;
     margin: auto;
@@ -398,6 +409,12 @@ input{
     #open-shop-data-control:checked ~ .header .open-shop-data{
         display: block;
     }
+    /* #open-shop-data-control:checked ~ .header .enter-open{
+        background-color: #659bf3;
+    }
+    .enter-open{
+        padding: 10px 0px  ;
+    } */
     .open-shop-data{
         display: none;
         z-index: 3;
@@ -406,7 +423,28 @@ input{
         top: 10%;
         line-height: 1.5;
     }
+    .open-shop-data-title{
+        display: none;
+    }
     .open-shop-data a{
+        display: block;
+    }
+    .open-shop-data-contain ul{
+        padding: 0px;
+    }
+    .open-shop-data-contain ul li{
+        border: 0px;
+    }
+    .open-shop-data-contain ul li p{
+        border-bottom: 1px ;
+    }
+    #program-fee-control:checked ~ .header .program-fee{
+        display: block;
+    }
+    #more-program-control:checked ~ .header .more-program-data{
+        display: block;
+    }
+    #other-resource:checked ~ .header .other-resource-data{
         display: block;
     }
     .main-btn{
@@ -486,17 +524,21 @@ input{
     .hb{
         display: none;
     }
-    .open-shop-data{
-        display: none;
-    }
+
     #open-shop-data-control:hover ~ .header .open-shop-data{
         display: block;
     }
     #open-shop-data-control:link ~ .header .open-shop-data{
         display: block;
     }
-    .open-shop-data-title{
-        border-bottom: 1px solid rgb(197, 196, 196);
+    #program-fee-control:hover ~ .header .program-fee{
+        display: block;
+    }
+    #more-program-control:hover ~ .header .more-program-data{
+        display: block;
+    }
+    #other-resource:hover ~ .header .other-resource-data{
+        display: block;
     }
     .open-shop-data{
         width: 46%;
@@ -504,6 +546,9 @@ input{
         background-color: #fff;
         top: 100%;
         padding: 10px 20px;
+    }
+    .open-shop-data-title{
+        border-bottom: 1px solid rgb(197, 196, 196);
     }
     .open-shop-date span{
         font-size: 20px;
@@ -523,7 +568,31 @@ input{
         display:block;
         line-height: 2;
     }
+    .program-fee{
+        position: absolute;
+        background-color: #fff;
+        top: 100%;
+        padding: 10px 20px;
+    }
+
+    .more-program-data{
+        position: absolute;
+        background-color: #fff;
+        top: 100%;
+        padding: 10px 20px;
+    }
+
+    .other-resource-data{
+        position: absolute;
+        background-color: #fff;
+        top: 100%;
+        padding: 10px 20px;
+    }
+
+
+
 }
+
 /* 切版 */
 @media screen and (max-width:767px) {
     .web-sample-introduce{
