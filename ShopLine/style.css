@@ -377,6 +377,7 @@ input{
     }
     .main-custom-service{
         width: 100%;
+        height: 100vh;
         position: absolute;
         top: 100%;
         right: 0%;
@@ -384,6 +385,10 @@ input{
         display:block;
         transform: translateX(100%);
         transition: .5s;
+        overflow-y: scroll  ;
+    }
+    .main-nav ul{
+        padding: 60px 0;
     }
     .main-nav ul li{
         border-bottom: 1px solid black;
@@ -407,6 +412,7 @@ input{
     .main-btn{
         padding: 30px 0px 70px 0px;
         text-align: center;
+        margin-bottom: 60px;
     }
     .btn-free{
         width: 90%;
@@ -448,9 +454,6 @@ input{
 }
 /* RWD第二版 */
 @media screen and (min-width:992px) {
-    .header-top{
-        /* padding: 10px 6.25% ; */
-    }
     .langue{
         padding-right: 10px;
     }
@@ -600,8 +603,8 @@ input{
     #radoi-commodity4:checked ~ .case-introduce
     .case-data-a4 ,
     #radoi-commodity5:checked ~ .case-introduce 
-    .case-data-a5 {
-        display: block;
+    .case-data-a5 { 
+        /* transform: none; */
         display: flex;
     }
     .case-introduce{
@@ -622,6 +625,8 @@ input{
     .case-data-a3,
     .case-data-a4,
     .case-data-a5{
+        /* transform: translateX(100%);
+        transition: .5s; */
         display: none;
         flex-direction: column-reverse;
         margin-top: 30px;
@@ -824,7 +829,6 @@ input{
     .case-data-a4 ,
     #radoi-commodity5:checked ~ .case-introduce 
     .case-data-a5 {
-        display: block;
         display: flex;
     }
     .case-introduce{
@@ -1248,5 +1252,5 @@ input{
         margin: auto;
         padding: 20px 87.5px;
         box-sizing: border-box;
-    }
+    }   
 }
