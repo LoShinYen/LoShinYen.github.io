@@ -26,18 +26,24 @@
 }
 .max-main-header{
     display: flex;
-    padding: 20px 6.25% ;
+    padding: 0px 6.25% ;
 }
 .logo{
     text-indent: 101%;
     overflow: hidden;
+    padding: 20px 0;
 }
 .main-custom-service{
     display: flex;
+    align-items: center;
+}
+.main-custom-service li{
+
 }
 .main-nav a{
     text-decoration: none;
     color: #00142d;
+    display: inline-block;
 }
 .btn-login{
     display: none;
@@ -409,12 +415,6 @@ input{
     #open-shop-data-control:checked ~ .header .open-shop-data{
         display: block;
     }
-    /* #open-shop-data-control:checked ~ .header .enter-open{
-        background-color: #659bf3;
-    }
-    .enter-open{
-        padding: 10px 0px  ;
-    } */
     .open-shop-data{
         display: none;
         z-index: 3;
@@ -524,10 +524,13 @@ input{
     .hb{
         display: none;
     }
-
     #open-shop-data-control:hover ~ .header .open-shop-data{
         display: block;
     }
+    /* #open-shop-data-control:hover ~ .header .main-nav ul li :nth-child(1){
+        display: block;
+        border-bottom: 5px solid #0061ff;
+    } */
     #open-shop-data-control:link ~ .header .open-shop-data{
         display: block;
     }
@@ -568,13 +571,31 @@ input{
         display:block;
         line-height: 2;
     }
-    .program-fee{
+    .program-fee{   
+        width: 400px;
         position: absolute;
         background-color: #fff;
         top: 100%;
+        left: 250px;
         padding: 10px 20px;
+        line-height: 1.5;
     }
-
+    .program-fee-title{
+        border-bottom: 1px solid rgb(197, 196, 196);
+    }
+    .program-fee-title h2{
+        font-size: 20px;
+    }
+    .program-fee-title p{
+        font-size: 14px;
+        color: #667281;
+        padding-bottom: 10px;
+    }
+    .program-fee-contain a{
+        display: block;
+        margin: 20px 0;
+        color: #667281;
+    }
     .more-program-data{
         position: absolute;
         background-color: #fff;
@@ -588,9 +609,6 @@ input{
         top: 100%;
         padding: 10px 20px;
     }
-
-
-
 }
 
 /* 切版 */
@@ -1340,10 +1358,13 @@ input{
         padding: 20px 87.5px;
         box-sizing: border-box;
     }
+    .web-sample-introduce{
+        padding: 0;
+    }
     .max-web-sample-introduce{
         max-width: 1400px;
         margin: auto;
-        padding: 20px 87.5px;
+        padding: 200px 87.5px 20px;
         box-sizing: border-box;
         display: flex;
     }   
@@ -1385,12 +1406,12 @@ input{
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
-        padding: 0 6.25%;
+        padding: 30px 87.5px;
         box-sizing: border-box;
     }
     .case-introduce{
         max-width: 1400px;
-        padding: 0 6.25%;
+        padding: 20px 87.5px;
         margin: auto;
         box-sizing: border-box;
     }
@@ -1403,7 +1424,7 @@ input{
         margin: auto;
         display: flex;
         flex-wrap: wrap;
-        padding: 0 6.25%;
+        padding: 0 87.5px;
         box-sizing: border-box;
     }
 }
