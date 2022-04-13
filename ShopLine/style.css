@@ -31,15 +31,12 @@
 .logo{
     text-indent: 101%;
     overflow: hidden;
-    padding: 20px 0;
 }
 .main-custom-service{
     display: flex;
     align-items: center;
 }
-.main-custom-service li{
 
-}
 .main-nav a{
     text-decoration: none;
     color: #00142d;
@@ -515,33 +512,42 @@ input{
         display: flex;
         justify-content: space-between;
     }
+    .main-nav{
+        display: flex;
+        justify-content: space-between;
+    }
     .main-nav ul{
         display: flex;
     }   
     .main-nav ul li{
-        padding: 25px 7px 0px;
+        padding: 25px 10px 25px 0px ;
     }
     .hb{
         display: none;
     }
-    #open-shop-data-control:hover ~ .header .open-shop-data{
+    .open-border:hover .open-shop-data{
         display: block;
     }
-    /* #open-shop-data-control:hover ~ .header .main-nav ul li :nth-child(1){
-        display: block;
-        border-bottom: 5px solid #0061ff;
-    } */
-    #open-shop-data-control:link ~ .header .open-shop-data{
+    .open-border:hover{
+        border-bottom: 4px solid #0061ff;
+    }
+    .program-fee-border:hover .program-fee{
         display: block;
     }
-    #program-fee-control:hover ~ .header .program-fee{
+    .program-fee-border:hover{
+        border-bottom: 4px solid #0061ff;
+    }
+    .more-program-border:hover .more-program-data{
         display: block;
     }
-    #more-program-control:hover ~ .header .more-program-data{
+    .more-program-border:hover{
+        border-bottom: 4px solid #0061ff;
+    }
+    .other-resource-border:hover .other-resource-data{
         display: block;
     }
-    #other-resource:hover ~ .header .other-resource-data{
-        display: block;
+    .other-resource-border:hover{
+        border-bottom: 4px solid #0061ff;
     }
     .open-shop-data{
         width: 46%;
@@ -549,15 +555,19 @@ input{
         background-color: #fff;
         top: 100%;
         padding: 10px 20px;
+        line-height: 1.5;
     }
     .open-shop-data-title{
         border-bottom: 1px solid rgb(197, 196, 196);
     }
-    .open-shop-date span{
+    .open-shop-data-title h2 {
         font-size: 20px;
     }
+    .open-shop-data-title p{
+        font-size: 14px;
+        color: #667281;
+    }
     .open-shop-data p{
-        padding-top: 20px;
         padding-bottom: 20px;
         width: 75%;
     }
@@ -569,7 +579,7 @@ input{
     }
     .open-shop-data-contain li a{
         display:block;
-        line-height: 2;
+        margin: 20px 0px;
     }
     .program-fee{   
         width: 400px;
@@ -601,13 +611,62 @@ input{
         background-color: #fff;
         top: 100%;
         padding: 10px 20px;
+        width: 800px;
+        left: 350px;
+        line-height: 1.5;
     }
-
+    .more-program-title{
+        border-bottom: 1px solid rgb(197, 196, 196);
+    }
+    .more-program-title h2{
+        font-size: 20px;
+    }
+    .more-program-title p{
+        width: 60%;
+        padding-bottom: 10px;
+        font-size: 14px;
+        color: #667281;
+    }
+    .more-program-lsit li{
+        width: 25%;
+    }
+    .more-program-lsit p{
+        border-bottom: 1px solid rgb(197, 196, 196);
+    }
+    .more-program-lsit li a{
+        display:block;
+        margin: 20px 0px;
+    }
     .other-resource-data{
+        width: 50%;
         position: absolute;
         background-color: #fff;
         top: 100%;
         padding: 10px 20px;
+        left: 500px;
+        line-height: 1.5;
+    }
+    .other-resource-title{
+        border-bottom: 1px solid rgb(197, 196, 196);
+    }
+    .other-resource-title h2{
+        font-size: 20px;
+    }
+    .other-resource-title p{
+        padding-bottom: 10px;
+        font-size: 14px;
+        color: #667281;
+    }
+    .other-resource-lsit li{
+        width: 33.33333%;
+    }
+    .other-resource-lsit li p{
+        border-bottom: 1px solid rgb(197, 196, 196);
+        padding-bottom: 20px;
+    }
+    .other-resource-lsit li a{
+        display:block;
+        margin: 20px 0px;
     }
 }
 
@@ -1355,7 +1414,7 @@ input{
     .max-main-header{
         max-width: 1400px;
         margin: auto;
-        padding: 20px 87.5px;
+        padding: 0px 87.5px;
         box-sizing: border-box;
     }
     .web-sample-introduce{
