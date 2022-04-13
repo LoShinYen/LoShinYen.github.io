@@ -1121,6 +1121,9 @@ input{
         font-size: 20px;
         line-height: 1.5;
     }
+    .additional-service{
+        padding: 0;
+    }
     .additional-service h2{
         font-size: 35px;
     }
@@ -1370,6 +1373,7 @@ input{
     }
     .severse_all_list{
         display: block;
+        padding: 0;
     }
     .max-world{
         max-width: 1400px;
@@ -1381,19 +1385,25 @@ input{
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
+        padding: 0 6.25%;
+        box-sizing: border-box;
     }
     .case-introduce{
         max-width: 1400px;
+        padding: 0 6.25%;
         margin: auto;
         box-sizing: border-box;
     }
     .footer_end{
         display: block;
+        padding: 0;
     }
     .max-footer_end{
         max-width: 1400px;
         margin: auto;
         display: flex;
         flex-wrap: wrap;
+        padding: 0 6.25%;
+        box-sizing: border-box;
     }
 }
