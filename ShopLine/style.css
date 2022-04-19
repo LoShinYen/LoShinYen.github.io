@@ -7,10 +7,8 @@
     margin: auto;
     background-color: #fff;
     z-index: 2;
-    /* padding: 0px 6.25%; */
 }
 .header-top{
-
     background-color: #00142d;
 }
 .header-top a{
@@ -36,7 +34,6 @@
     display: flex;
     align-items: center;
 }
-
 .main-nav a{
     text-decoration: none;
     color: #00142d;
@@ -480,11 +477,44 @@ input{
         color: #fff;
         font-size: 15px;
     }
-    .hb{
-        width: 15px;
-    }
     .max-width{
         max-width: 1400px;
+    }
+    .hb{
+        display: flex;
+        position: relative;
+        width: 20px;
+    }
+    .hb span{
+        display: inline-block;
+        width: 20px;
+        height: 1px;
+        background-color: #00142d;
+        position: absolute;
+        transition: 0.5s ;
+    }
+    .hb span:nth-child(1){
+        transform: translate(0,10px);
+    }
+    .hb span:nth-child(3){
+        transform: translate(0,-10px);
+        
+    }
+    #menu-control:checked ~ .header .hb{
+        transform:rotate(360deg) ;
+        transition: 1s;
+    }
+    #menu-control:checked ~ .header .hb span:nth-child(1){
+        transform:rotate(45deg) ;
+        transition: 0.5s;
+    }
+    #menu-control:checked ~ .header .hb span:nth-child(2){
+        transform:scale(0) ;
+        transition: 0.5s;
+    }
+    #menu-control:checked ~ .header .hb span:nth-child(3){
+        transform:rotate(-45deg) ;
+        transition: 0.5s;
     }
 }
 /* RWD第二版 */
@@ -535,6 +565,7 @@ input{
         display: block;
     }
     .program-fee-border:hover{
+        transition: 0.5s;
         border-bottom: 4px solid #0061ff;
     }
     .more-program-border:hover .more-program-data{
