@@ -61,8 +61,6 @@
         let thead = document.createElement('thead');
         let tbody = document.createElement('tbody');
         window.onload = function () {
-
-
             dataName.forEach(company=>{
                 //company目前是每一筆公司的資料
                 //把每一筆資料push進companies空陣列中
@@ -81,7 +79,6 @@
                 theadTR.append(th);
                 thead.append(theadTR);
                 table.append(thead);
-
             })
         }
         function createTbody(){
