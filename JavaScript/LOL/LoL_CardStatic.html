@@ -2174,21 +2174,17 @@
         //建立全域變數
         let cardtitle,cardtext,cardimg;
         let btnCreateHeroArray, btnListHero, btnTableHero;
+        //table變數
+        let table = document.createElement('table');
+        table.setAttribute("class", "table table-bordered table-striped table-dark");
+        let thead = document.createElement('thead');
+        let tbody = document.createElement('tbody');
+        let colum=['名稱','介紹','連結網址'];
+        container =  document.querySelector("#container");
 
-        window.onload = function () {
-            container =  document.querySelector("#container");
-            btnCreateHeroArray = document.getElementById("createhero");
-            btnListHero = document.getElementById("listhero");
-            btnTableHero = document.getElementById("tablehero");
-
-            btnCreateHeroArray.addEventListener("click", function () {
-                //alert("從DOM建立英雄人物陣列資料後清除container");
-                //querySelector,只能抓tag
-
-                var list = container.querySelectorAll('.col-xl-3');
-            
-                container.innerHTML="";
-                list.forEach((item,index) => {
+        var list = container.querySelectorAll('.col-xl-3');
+        
+        list.forEach((item,index) => {
                     id = index+1;
                     cardtitle =item.querySelector(".card-title").innerText;
                     cardtext = item.querySelector(".card-text").innerText;
@@ -2200,10 +2196,19 @@
                     }
                     heroArray.push(hero);
                 });
-                alert("從DOM建立英雄人物陣列資料成功！");
-                
 
+        window.onload = function () {
+            
+            btnCreateHeroArray = document.getElementById("createhero");
+            btnListHero = document.getElementById("listhero");
+            btnTableHero = document.getElementById("tablehero");
+            btnCreateHeroArray.addEventListener("click", function () {
+                //alert("從DOM建立英雄人物陣列資料後清除container");
+                //querySelector,只能抓tag
                 
+                container.innerHTML="";
+                
+                alert("從DOM建立英雄人物陣列資料成功！");
                 //2.清除container
                 document.querySelector("#container").innerHTML = "";
             });
@@ -2225,13 +2230,35 @@
                 })
             });
 
+            //建立table事件
             btnTableHero.addEventListener("click", function(){
                 if(heroArray.length==0){
                     alert("請先建立陣列資料");
                     return;
                 }
-                
                 alert("以表格呈現英雄人物資料！");
+                container.innerText='';
+                let theadTR = document.createElement('tr')
+                colum.forEach(item=>{
+                    let theadTH = document.createElement('th')
+                    theadTH.innerText = item;
+                    theadTR.append(theadTH);
+                })
+                thead.append(theadTR);
+                table.append(thead)
+                heroArray.forEach(col=>{
+                    let tbodyTR = document.createElement('tr');
+                    let title = document.createElement('td');
+                    title.innerText = col.cardtitle
+                    let name = document.createElement('td');
+                    name.innerText = col.cardtext
+                    let url = document.createElement('td');
+                    url.innerText = col.cardimg
+                    tbodyTR.append(title,name,url);
+                    tbody.append(tbodyTR);
+                    table.append(tbody);
+                    container.append(table);
+                })
             });
         }
 
