@@ -2184,7 +2184,54 @@
 
         var list = container.querySelectorAll('.col-xl-3');
         
-        list.forEach((item,index) => {
+
+        window.onload = function () {    
+            btnCreateHeroArray = document.getElementById("createhero");
+            btnListHero = document.getElementById("listhero");
+            btnTableHero = document.getElementById("tablehero");
+
+            let theadTR,theadTH,bodyTR,title,name,url
+            //
+            btnCreateHeroArray.addEventListener("click", function () {
+                //alert("從DOM建立英雄人物陣列資料後清除container");
+                //querySelector,只能抓tag
+                
+                container.innerHTML="";
+                heroArraryWay();
+                alert("從DOM建立英雄人物陣列資料成功！");
+                //2.清除container
+                document.querySelector("#container").innerHTML = "";
+            });
+            //
+            btnListHero.addEventListener("click", function () {
+                if(heroArray.length==0){
+                    alert("請先建立陣列資料");
+                    return;
+                }
+                //alert("以文字迭代英雄人物資料！");
+                heroArray.forEach((item,index)=>{
+                    let p = document.createElement("p");
+                    p.innerText =`${item.cardtitle},${item.cardtext},${item.cardimg}`
+                    container.appendChild(p)
+                })
+            });
+            //建立table事件
+            btnTableHero.addEventListener("click", function(){
+                if(table.innerHTML!=[]){
+                    container.append(table);
+                    return;
+                }   
+                if(heroArray.length==0){
+                    alert("請先建立陣列資料");
+                    return;
+                }
+                alert("以表格呈現英雄人物資料！");
+                container.innerHTML='';
+                herotable()
+            });
+        }
+        function heroArraryWay(){
+            list.forEach((item,index) => {
                     id = index+1;
                     cardtitle =item.querySelector(".card-title").innerText;
                     cardtext = item.querySelector(".card-text").innerText;
@@ -2195,71 +2242,33 @@
                         "cardimg"   : cardimg
                     }
                     heroArray.push(hero);
-                });
-        window.onload = function () {    
-            btnCreateHeroArray = document.getElementById("createhero");
-            btnListHero = document.getElementById("listhero");
-            btnTableHero = document.getElementById("tablehero");
-            btnCreateHeroArray.addEventListener("click", function () {
-                //alert("從DOM建立英雄人物陣列資料後清除container");
-                //querySelector,只能抓tag
-                
-                container.innerHTML="";
-                
-                alert("從DOM建立英雄人物陣列資料成功！");
-                //2.清除container
-                document.querySelector("#container").innerHTML = "";
             });
-
-            btnListHero.addEventListener("click", function () {
-                if(heroArray.length==0){
-                    alert("請先建立陣列資料");
-                    return;
-                }
-                //alert("以文字迭代英雄人物資料！");
-                heroArray.forEach((item,index)=>{
-                    let p = document.createElement("p");
-                    // let obj = [item.cardtitle, item.cardtext,item.cardimg]
-                    // p.innerText = JSON.stringify(obj)
-
-                    p.innerText =`${item.cardtitle},${item.cardtext},${item.cardimg}`
-
-                    container.appendChild(p)
-                })
-            });
-
-            //建立table事件
-            btnTableHero.addEventListener("click", function(){
-                if(heroArray.length==0){
-                    alert("請先建立陣列資料");
-                    return;
-                }
-                alert("以表格呈現英雄人物資料！");
-                container.innerText='';
-                let theadTR = document.createElement('tr')
+        }
+        function herotable(){
+            //標體
+            theadTR = document.createElement('tr')
                 colum.forEach(item=>{
-                    let theadTH = document.createElement('th')
+                    theadTH = document.createElement('th')
                     theadTH.innerText = item;
                     theadTR.append(theadTH);
                 })
-                thead.append(theadTR);
-                table.append(thead)
-                heroArray.forEach(col=>{
-                    let tbodyTR = document.createElement('tr');
-                    let title = document.createElement('td');
-                    title.innerText = col.cardtitle
-                    let name = document.createElement('td');
-                    name.innerText = col.cardtext
-                    let url = document.createElement('td');
-                    url.innerText = col.cardimg
-                    tbodyTR.append(title,name,url);
-                    tbody.append(tbodyTR);
-                    table.append(tbody);
-                    container.append(table);
-                })
-            });
+                //內文
+            thead.append(theadTR);
+            table.append(thead)
+            heroArray.forEach(col=>{
+                tbodyTR = document.createElement('tr');
+                title = document.createElement('td');
+                title.innerText = col.cardtitle
+                name = document.createElement('td');
+                name.innerText = col.cardtext
+                url = document.createElement('td');
+                url.innerText = col.cardimg
+                tbodyTR.append(title,name,url);
+                tbody.append(tbodyTR);
+            })
+            table.append(tbody);
+            container.append(table);
         }
-
     </script>
 
 
