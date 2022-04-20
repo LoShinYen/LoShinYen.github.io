@@ -24,45 +24,32 @@
         let j=0;
         window.onload = function() {
             container = document.getElementById("container");
-
             appendPokemonByTemplate();
         }
-
-
         // function appendPokemon(){
         //     //1.creat <img>
         //     let img = document.createElement("img")
-
         //     //2.Set <img>
         //     img.setAttribute("src","https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png");
-
         //     //3.append <img> into container
-
         //     container.appendChild(img);
         // }
-
         // function appendPokemonByTemplate(){
         //     let fileName ='001';
         //     let pathFile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
-
         //     let pokemoImg = `<img src='${pathFile}'>`;
-
         //     container.innerHTML =pokemoImg;
         // }
-
         function AllPokemon(){
             for(let i=1;i<898;i++){
                 fileName =i.toString().padStart(3,"0");
                 let pathFile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
-
                 let img = document.createElement("img");
                 img.setAttribute("src",pathFile)
                 //addEventListener,在文檔中添加點擊事件,當用戶在文檔任何地方點擊時
                 img.addEventListener("click",function(envet){
-                
                     container.removeChild(event.target)
                 });
-
                 container.append(img);
             }
         }
@@ -77,12 +64,9 @@
                 return container.append(img);
             };
         };
-
-
         function removePokemon(){
             container.removeChild(container.lastChild);
         }
-
         function ResetPokemon(){
             container.innerHTML="";
             fileName=0;
