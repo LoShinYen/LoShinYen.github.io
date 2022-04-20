@@ -69,7 +69,8 @@
             })
             drawPieChart(companies,data);
             createThead()
-            createTbody()
+            // createTbody()
+            hardTboddy()
         }
         function createThead(){
             let theadTR = document.createElement('tr');
@@ -97,6 +98,19 @@
                 table.append(tbody)
             });
         };
+        function hardTboddy(){
+            marketingShare.data.forEach(data =>{
+                let dataAwway = Object.values(data)
+                let tr = document.createElement('tr')
+                dataAwway.forEach(item=>{
+                    let td = document.createElement('td')
+                    td.innerText = item;
+                    tr.append(td);
+                    tbody.append(tr)
+                })
+            })
+            table.append(tbody)
+        }
     </script>
 
     <script>
