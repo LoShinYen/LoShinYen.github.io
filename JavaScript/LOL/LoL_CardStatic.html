@@ -67,9 +67,6 @@
             margin: 0;
             padding: 0px 10px;
         }
-        p{
-
-        }
     </style>
 </head>
 
@@ -2179,6 +2176,7 @@
         table.setAttribute("class", "table table-bordered table-striped table-dark");
         let thead = document.createElement('thead');
         let tbody = document.createElement('tbody');
+        let theadTR,theadTH,bodyTR,title
         let colum=['名稱','介紹','連結網址'];
         container =  document.querySelector("#container");
 
@@ -2190,25 +2188,26 @@
             btnListHero = document.getElementById("listhero");
             btnTableHero = document.getElementById("tablehero");
 
-            let theadTR,theadTH,bodyTR,title,name,url
+            
             //
             btnCreateHeroArray.addEventListener("click", function () {
                 //alert("從DOM建立英雄人物陣列資料後清除container");
                 //querySelector,只能抓tag
-                
-                container.innerHTML="";
-                heroArraryWay();
-                alert("從DOM建立英雄人物陣列資料成功！");
+                    alert("從DOM建立英雄人物陣列資料成功！");
+                    container.innerHTML="";
+                    heroArraryWay();
                 //2.清除container
                 document.querySelector("#container").innerHTML = "";
             });
             //
             btnListHero.addEventListener("click", function () {
+                
                 if(heroArray.length==0){
                     alert("請先建立陣列資料");
                     return;
                 }
-                //alert("以文字迭代英雄人物資料！");
+                container.innerText=""
+                alert("以文字迭代英雄人物資料！");
                 heroArray.forEach((item,index)=>{
                     let p = document.createElement("p");
                     p.innerText =`${item.cardtitle},${item.cardtext},${item.cardimg}`
@@ -2217,6 +2216,7 @@
             });
             //建立table事件
             btnTableHero.addEventListener("click", function(){
+                container.innerHTML='';
                 if(table.innerHTML!=[]){
                     container.append(table);
                     return;
@@ -2226,7 +2226,6 @@
                     return;
                 }
                 alert("以表格呈現英雄人物資料！");
-                container.innerHTML='';
                 herotable()
             });
         }
@@ -2256,21 +2255,19 @@
             thead.append(theadTR);
             table.append(thead)
             heroArray.forEach(col=>{
+                let item = Object.values(col)
                 tbodyTR = document.createElement('tr');
-                title = document.createElement('td');
-                title.innerText = col.cardtitle
-                name = document.createElement('td');
-                name.innerText = col.cardtext
-                url = document.createElement('td');
-                url.innerText = col.cardimg
-                tbodyTR.append(title,name,url);
-                tbody.append(tbodyTR);
+                item.forEach(items=>{
+                    title = document.createElement('td');
+                    title.innerText = items
+                    tbodyTR.append(title);
+                    tbody.append(tbodyTR);
+                })
+                table.append(tbody);
             })
-            table.append(tbody);
             container.append(table);
         }
     </script>
-
 
 
 </body>
