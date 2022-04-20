@@ -2179,16 +2179,11 @@
         let theadTR,theadTH,bodyTR,title
         let colum=['名稱','介紹','連結網址'];
         container =  document.querySelector("#container");
-
         var list = container.querySelectorAll('.col-xl-3');
-        
-
         window.onload = function () {    
             btnCreateHeroArray = document.getElementById("createhero");
             btnListHero = document.getElementById("listhero");
             btnTableHero = document.getElementById("tablehero");
-
-            
             //
             btnCreateHeroArray.addEventListener("click", function () {
                 //alert("從DOM建立英雄人物陣列資料後清除container");
