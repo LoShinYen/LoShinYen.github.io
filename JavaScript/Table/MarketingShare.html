@@ -82,6 +82,7 @@
                 table.append(thead);
             })
         }
+        //一維
         function createTbody(){
             marketingShare.data.forEach(datas =>{
                 let tbodyTR = document.createElement('tr');
@@ -98,6 +99,7 @@
                 table.append(tbody)
             });
         };
+        //二維
         function hardTboddy(){
             marketingShare.data.forEach(data =>{
                 let dataAwway = Object.values(data)
