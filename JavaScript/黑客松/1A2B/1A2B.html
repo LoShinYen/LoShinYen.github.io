@@ -219,16 +219,18 @@
                     historyAB.style.backgroundColor='red'
                     historyAB.style.borderRadius='10px'                    
                 }
-                if(timesA=4&&cheating!=0){
-                    historyAB.style.backgroundColor='green'
-                    historyAB.style.borderRadius='10px'                    
-                    alert('恭喜您獲勝,不過有沒有考慮不要作弊呢')
-                }
                 else if(timesA=4){
                     historyAB.style.backgroundColor='green'
                     historyAB.style.borderRadius='10px'                    
                     alert('恭喜您獲勝')
                 }
+                if(cheating!=0){
+                    // historyAB.style.backgroundColor='green'
+                    // historyAB.style.borderRadius='10px'                    
+                    alert('有沒有考慮不要作弊呢')
+                    cheating=0
+                }
+
             }
             if(numArray.length!=4&&output.value.length!=4){
                 return alert('請先按開始,並輸入四個數字,再進行遊戲')
