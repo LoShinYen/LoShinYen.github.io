@@ -264,8 +264,11 @@
                     }
                 }
             }
-            if(compate!==4){
+            if(compate!==4&&output.value.length!=0){
                 alert('請勿輸入重複數字')
+            }
+            else if(output.value.length=0){
+                return alert('請輸入4個數字')
             }
         }
     </script>
