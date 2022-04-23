@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>JS版1A2B</title>
+    <style>
+        body{
+            background-color: rgb(212, 243, 205);
+        }
+        .container{
+            width: 90%;
+            border: 1px solid #000;
+            box-sizing: border-box;
+            font-size: 20px;
+            font-weight: 600;
+            background-color: rgb(255, 255, 255);
+        }
+        .button_col{
+            border-radius: 10px;
+            width: 90%;
+            border: 1px solid #000;
+            box-sizing: border-box;
+        }
+        .button_col button{
+            background-color: rgb(245, 245, 245);
+            font-size: 15px;
+            font-weight: 800;
+        }
+        .button_col button:hover{
+            background-color: rgb(236, 232, 232);
+            color: rgb(250, 81, 81);
+        }
+        .main-container{
+            height: 400px;
+        }
+        #history {
+            display: inline-block;
+            height: 400px;
+            overflow: auto;
+            font-size: 30px;
+            transform: scale(1);
+            transition: .7s;
+        }
+        #answer {
+            transform: scale(0);
+            transition: .7s;
+            font-size: 30px;
+        }
+        .sendText{
+            border: 1px solid #000;
+            border-radius: 10px;
+        }
+        #input{
+            border-radius: 10px;
+        }
+        #send{
+            background-color: rgb(245, 245, 245);
+            font-size: 15px;
+            font-weight: 800;
+        }
+        #send:hover{
+            background-color: rgb(236, 232, 232);
+            color: rgb(250, 81, 81);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-3 text-center  ">
+        <div class="row">
+            <div class="button_col col-lg-12 d-flex justify-content-around  m-auto mt-4 ">
+                <div class="col-lg-2 py-2">
+                    <button class="btn  w-75 " id="start">開始</button>
+                </div>
+                <div class="col-lg-2 py-2">
+                    <button class="btn  w-75" id="abandon">放棄</button>
+                </div>
+                <div class="col-lg-2 py-2">
+                    <button class="btn  w-75 " id="result">看答案</button>
+                </div>
+                <div class="col-lg-2 py-2">
+                    <button class="btn  w-75" id="clearHistory">清空歷史紀錄</button>
+                </div>
+            </div>
+        </div>
+        <div class="main-container row">
+            <div class="col-lg-12 py-2" id="history">我是歷史區</div>
+            <div class="col-lg-12 py-2 " id="answer">我是答案區</div>
+        </div>
+        <div class="row d-flex justify-content-center py-2">
+            <div class="col-lg-10 w-75">
+                <div class="sendText col-lg-2 d-inline-block">猜答案</div>
+                <input type="text" id="input" class="w-75">
+            </div>
+            <div class="col-lg-2 w-25 d-flex flex-row">
+                <button class="btn btn-light w-50" id="send">猜</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let btn_start = document.getElementById('start');
+        let result = document.getElementById('result');
+        let answer = document.getElementById('answer');
+        let btn_abandon = document.getElementById('abandon');
+        let clearHistory = document.getElementById('clearHistory')
+        let history = document.getElementById('history')
+        let output = document.getElementById('input');
+        let btn_send = document.getElementById('send');
+        let numArray = [];
+        let timesA=0;
+        let timesB=0;
+        let compare_result;
+        let historyDiv,historyTest,historyAB,answerResult;            
+        let compate=0;
+        //開始按鈕
+        btn_start.addEventListener('click', function(){
+            reset();
+            randomNumber();
+        })
+        //放棄按鈕
+        btn_abandon.addEventListener('click',abandonWay)
+        //看答案
+        result.addEventListener('click',function(){
+            if(numArray.length!=4){
+                alert('請先開始遊戲,再看答案')
+            }
+            else{
+                alert(`答案是:${numArray}`)
+            }
+        })
+        //清空歷史紀錄
+        clearHistory.addEventListener('click',function(){
+            history.innerText='我是歷史區';
+        })
+        //送出猜測值
+        btn_send.addEventListener('click',function(){
+            clearTimes();
+            judgmentWay();
+            noRepeat()
+            historyContainer();
+        })
+        //亂數
+        function randomNumber() {
+            if(numArray!=[])
+            {
+                numArray=[]
+            }
+            while (numArray.length < 4) {
+                let num = Math.floor(Math.random() * 10)
+                if (numArray.length === 0) {
+                    numArray.push(num)
+                }
+                else {
+                    if (!numArray.includes(num)) {
+                        numArray.push(num)
+                    } else {
+                        num = Math.floor(Math.random() * 10)
+                    }
+                }
+            }
+            answerResult=document.createElement('p')
+            answerResult.innerText=numArray
+            answer.append(answerResult);
+        }
+        //認輸
+        function abandonWay(){
+            if(numArray.length==4){
+                answer.style.height='400px'
+                answer.style.transform="scale(1)"
+                history.style.transform='scale(0)'
+                history.style.height='0px'
+            }
+            else{
+                alert('請先開始遊戲,再看答案')
+            }
+        }
+        //判斷AB
+        function judgmentWay(){
+            let outputArray = Array.from(output.value)
+            for(let i= 0 ;i<numArray.length;i++){
+                if(outputArray[i] == numArray[i]){
+                        timesA += 1;
+                    }
+                else{
+                    for (let j = 0; j < numArray.length; j++) {
+                        if (outputArray[i] == numArray[j]&& outputArray[i] !== numArray[i]) {
+                            timesB += 1;
+                        }
+                    }
+                }
+            }
+            compare_result=`${timesA}A${timesB}B`
+        }
+        //AB清零
+        function clearTimes(){
+            timesA=0;
+            timesB=0;
+        }
+        //動態產生元素
+        function historyContainer(){
+            if(output.value.length==4&&compate==4){
+                historyTest = document.createElement('p');
+                historyTest.innerText = output.value;
+                historyAB = document.createElement('p')
+                historyAB.innerText=compare_result
+                historyDiv = document.createElement('div')
+                historyDiv.append(historyAB,historyTest);
+                history.appendChild(historyDiv)
+                historyAB.style.color='white'
+                historyDiv.setAttribute('class','d-flex text-center justify-content-center')
+                if(timesA!=4){
+                    historyAB.style.backgroundColor='red'                    
+                }
+                else if(timesA=4){
+                    historyAB.style.backgroundColor='green'
+
+                }
+            }
+            if(numArray.length!=4&&output.value.length!=4){
+                return alert('請先按開始,並輸入四個數字,再進行遊戲')
+            }
+            if(numArray.length!=4){    
+                historyDiv.innerText=''
+                return alert('請先按開始,再進行遊戲')
+            }
+            if(output.value.length!=4||parseInt(output.value)!=output.value){
+                return alert('請輸入4個數字')
+            }
+        }
+        //重置
+        function reset(){
+            answer.innerText='我是答案區';
+            history.innerText='我是歷史區';
+            numArray=[];
+            history.style.transform='scale(1)'
+            history.style.height='400px'
+            answer.style.height='0px'
+            answer.style.transform="scale(0)"
+
+        }
+        //重複數字
+        function noRepeat(){
+            compate=0
+            for(let i =0;i<4;i++){
+                for(let j = 0;j<4;j++){
+                    if(output.value[i]==output.value[j]){
+                        compate+=1
+                    }
+                }
+            }
+            if(compate!==4){
+                alert('請勿輸入重複數字')
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
