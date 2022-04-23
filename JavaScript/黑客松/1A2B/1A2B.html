@@ -116,6 +116,7 @@
         let compare_result;
         let historyDiv,historyTest,historyAB,answerResult;            
         let compate=0;
+        let cheating=0;
         //開始按鈕
         btn_start.addEventListener('click', function(){
             reset();
@@ -131,6 +132,7 @@
             else{
                 alert(`答案是:${numArray}`)
             }
+            cheating+=1
         })
         //清空歷史紀錄
         clearHistory.addEventListener('click',function(){
@@ -211,13 +213,21 @@
                 historyDiv.append(historyAB,historyTest);
                 history.appendChild(historyDiv)
                 historyAB.style.color='white'
+                historyAB.style.padding='0px 5px'
                 historyDiv.setAttribute('class','d-flex text-center justify-content-center')
                 if(timesA!=4){
-                    historyAB.style.backgroundColor='red'                    
+                    historyAB.style.backgroundColor='red'
+                    historyAB.style.borderRadius='10px'                    
+                }
+                if(timesA=4&&cheating!=0){
+                    historyAB.style.backgroundColor='green'
+                    historyAB.style.borderRadius='10px'                    
+                    alert('恭喜您獲勝,不過有沒有考慮不要作弊呢')
                 }
                 else if(timesA=4){
                     historyAB.style.backgroundColor='green'
-
+                    historyAB.style.borderRadius='10px'                    
+                    alert('恭喜您獲勝')
                 }
             }
             if(numArray.length!=4&&output.value.length!=4){
@@ -240,7 +250,7 @@
             history.style.height='400px'
             answer.style.height='0px'
             answer.style.transform="scale(0)"
-
+            cheating=0;
         }
         //重複數字
         function noRepeat(){
