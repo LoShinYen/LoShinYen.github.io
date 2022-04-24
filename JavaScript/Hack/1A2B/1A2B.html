@@ -44,6 +44,7 @@
             font-size: 30px;
             transform: scale(1);
             transition: .7s;
+            overflow: auto;
         }
         #gameRule p{
             text-align: left;
@@ -71,26 +72,66 @@
             background-color: rgb(236, 232, 232);
             color: rgb(250, 81, 81);
         }
+        @media screen and (max-width:767.9px) {
+            .container{     
+            font-size: 12px;
+            font-weight: 600;
+            }
+            .button_col{
+                width: 100%;
+                padding: 0;
+                margin: 0;
+            }
+            .button_col> div{
+                width: 19%;
+                margin: 0px 1px;
+            }
+            .button_col button{
+                width: 100% !important;
+                font-size: 12px;
+                padding: 0;
+            }
+            #gameRule{
+            display: inline-block;
+            height: 400px;
+            font-size: 15px;
+            }
+            .sendContainer{
+                padding: 0 !important; 
+            }
+            .sendText{
+                font-size: 12px;
+            }
+            .input-group{
+                padding: 0px 2px;
+                width: 100%;
+            }
+        }
+        @media screen and (min-width:768px) and (max-width:992px) {
+            .button_col button{     
+            font-size: 12px;
+            }
+        }
     </style>
 </head>
 
 <body>
     <div class="container mt-3 text-center  ">
         <div class="row">
-            <div class="button_col col-12 d-flex justify-content-around  m-auto mt-4 ">
-                <div class="col-2 py-2">
+            <div class="button_col col-12  d-flex justify-content-around  m-auto mt-4 ">
+                <div class="col-2  py-2">
                     <button class="btn  w-75 " id="start">開始</button>
                 </div>
-                <div class="col-2 py-2">
+                <div class="col-2  py-2">
                     <button class="btn  w-75" id="abandon">放棄</button>
                 </div>
-                <div class="col-2 py-2">
+                <div class="col-2  py-2">
                     <button class="btn  w-75 " id="result">看答案</button>
                 </div>
-                <div class="col-2 py-2">
+                <div class="col-2  py-2">
                     <button class="btn  w-75" id="clearHistory">清空歷史</button>
                 </div>
-                <div class="col-2 py-2">
+                <div class="col-2  py-2">
                     <button class="btn  w-75" id="seeRule">看規則</button>
                 </div>
             </div>
@@ -98,17 +139,17 @@
         <div class="main-container row">
             <div class="col-12 py-2" id="gameRule">
                 <span >遊戲規則介紹</span>
-                <p class="px-5">1.遊戲開始時請先按開始遊戲,否則所有功能皆無法使用</p>
-                <p class="px-5">2.遊戲開始後會隨機產生4個0~9不重複之阿拉伯數字</p>
-                <p class="px-5">3.遊戲時請勿輸入重複之阿拉伯數字以及非阿拉伯數字以外之文字</p>
-                <p class="px-5">4.若您輸入之數字位置正確為A,位置錯誤但有包含在猜測數字之內則為B</p>
-                <p class="px-5">5.當您獲得4A時將贏得遊戲,若未達成還請繼續努力</p>
+                <p class="px-5">1.遊戲開始時請先按開始遊戲,否則所有功能皆無法使用。</p>
+                <p class="px-5">2.遊戲開始後會隨機產生4個0~9不重複之阿拉伯數字。</p>
+                <p class="px-5">3.遊戲時請勿輸入重複之阿拉伯數字以及非阿拉伯數字以外之文字。</p>
+                <p class="px-5">4.若您輸入之數字位置正確為A,位置錯誤但有包含在猜測數字之內則為B。</p>
+                <p class="px-5">5.當您獲得4A時將贏得遊戲,若未達成還請繼續努力。</p>
             </div>
             <div class="col-12 py-2" id="history">我是歷史區</div>
             <div class="col-12 py-2 " id="answer">我是答案區</div>
         </div>
-        <div class="row d-flex justify-content-center py-2 px-5">
-            <div class="col-9 w-100 input-group ">
+        <div class="row d-flex justify-content-center py-2 px-5 sendContainer">
+            <div class="col-9  w-100 input-group ">
                 <div class="sendText col-2 d-inline-block input-group-text">猜答案</div>
                 <input type="text" id="input" class="w-50 form-control" >
                 <button class="btn btn-light w-25" id="send">猜</button>
