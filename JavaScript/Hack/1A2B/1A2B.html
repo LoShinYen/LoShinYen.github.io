@@ -167,6 +167,7 @@
         let history = document.getElementById('history')
         let output = document.getElementById('input');
         let btn_send = document.getElementById('send');
+        
         let numArray = [];
         let timesA=0,timesB=0;
         let compare_result;
@@ -176,6 +177,7 @@
         btn_start.addEventListener('click', function(){
             reset();
             randomNumber();
+            output.focus();
         })
         //放棄按鈕
         btn_abandon.addEventListener('click',abandonWay)
@@ -188,10 +190,12 @@
                 alert(`答案是:${numArray}`)
             }
             cheating+=1
+            output.focus();
         })
         //清空歷史紀錄
         clearHistory.addEventListener('click',function(){
             history.innerText='我是歷史區';
+            output.focus();
         })
         //送出猜測值
         btn_send.addEventListener('click',function(){
@@ -201,11 +205,13 @@
                 return clearTimes();
             }
             else{
+                ScreenYransform("scale(0)","0","scale(1)",'400px',"scale(0)","0")
                 clearTimes();
                 judgmentWay();
                 noRepeat();
                 historyContainer();
             }
+            output.focus();
         })
         //亂數
         function randomNumber() {
@@ -234,12 +240,7 @@
         //認輸
         function abandonWay(){
             if(numArray.length==4){
-                gameRule.style.height='0px';
-                gameRule.style.transform='scale(0)';
-                answer.style.height='400px'
-                answer.style.transform="scale(1)"
-                history.style.transform='scale(0)'
-                history.style.height='0px'
+                ScreenYransform("scale(0)","0","scale(0)","0","scale(1)",'400px')
                 abandonTimes=1;
             }
             else{
@@ -311,12 +312,7 @@
             answer.innerText='我是答案區';
             history.innerText='我是歷史區';
             numArray=[];
-            gameRule.style.transform='scale(0)'
-            gameRule.style.height='0px'
-            history.style.transform='scale(1)'
-            history.style.height='400px'
-            answer.style.height='0px'
-            answer.style.transform="scale(0)"
+            ScreenYransform("scale(0)","0","scale(1)",'400px',"scale(0)","0")
             cheating=0;
             abandonTimes=0;
         }
@@ -339,15 +335,17 @@
         }
         //看規則
         seeRule.addEventListener('click',function(){
-            answer.style.height='0px'
-            answer.style.transform="scale(0)"
-            history.style.transform='scale(0)'
-            history.style.height='0px'
-            gameRule.style.height='400px';
-            gameRule.style.transform='scale(1)';
-            
-
+            ScreenYransform("scale(1)",'400px',"scale(0)","0","scale(0)","0")
+            output.focus();
         })
+        function ScreenYransform(rTS,rH,hTS,hH,aTS,aH){
+            gameRule.style.transform=rTS
+            gameRule.style.height=rH
+            history.style.transform=hTS
+            history.style.height=hH
+            answer.style.transform=aTS
+            answer.style.height=aH
+        }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
