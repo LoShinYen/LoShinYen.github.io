@@ -18,6 +18,7 @@
             font-size: 20px;
             font-weight: 600;
             background-color: rgb(255, 255, 255);
+            border-radius: 10px;
         }
         .button_col{
             border-radius: 10px;
@@ -50,13 +51,6 @@
             transition: .7s;
             font-size: 30px;
         }
-        .sendText{
-            border: 1px solid #000;
-            border-radius: 10px;
-        }
-        #input{
-            border-radius: 10px;
-        }
         #send{
             background-color: rgb(245, 245, 245);
             font-size: 15px;
@@ -72,32 +66,32 @@
 <body>
     <div class="container mt-3 text-center  ">
         <div class="row">
-            <div class="button_col col-lg-12 d-flex justify-content-around  m-auto mt-4 ">
-                <div class="col-lg-2 py-2">
+            <div class="button_col col-12 d-flex justify-content-around  m-auto mt-4 ">
+                <div class="col-2 py-2">
                     <button class="btn  w-75 " id="start">開始</button>
                 </div>
-                <div class="col-lg-2 py-2">
+                <div class="col-2 py-2">
                     <button class="btn  w-75" id="abandon">放棄</button>
                 </div>
-                <div class="col-lg-2 py-2">
+                <div class="col-2 py-2">
                     <button class="btn  w-75 " id="result">看答案</button>
                 </div>
-                <div class="col-lg-2 py-2">
-                    <button class="btn  w-75" id="clearHistory">清空歷史紀錄</button>
+                <div class="col-2 py-2">
+                    <button class="btn  w-75" id="clearHistory">清空歷史</button>
                 </div>
             </div>
         </div>
         <div class="main-container row">
-            <div class="col-lg-12 py-2" id="history">我是歷史區</div>
-            <div class="col-lg-12 py-2 " id="answer">我是答案區</div>
+            <div class="col-12 py-2" id="history">我是歷史區</div>
+            <div class="col-12 py-2 " id="answer">我是答案區</div>
         </div>
-        <div class="row d-flex justify-content-center py-2">
-            <div class="col-lg-10 w-75">
-                <div class="sendText col-lg-2 d-inline-block">猜答案</div>
-                <input type="text" id="input" class="w-75">
+        <div class="row d-flex justify-content-center py-2 ">
+            <div class="col-9 w-75 input-group ">
+                <div class="sendText col-2 d-inline-block input-group-text">猜答案</div>
+                <input type="text" id="input" class="w-75 form-control" >
             </div>
-            <div class="col-lg-2 w-25 d-flex flex-row">
-                <button class="btn btn-light w-50" id="send">猜</button>
+            <div class="col-1 w-25 ">
+                <button class="btn btn-light w-100" id="send">猜</button>
             </div>
         </div>
     </div>
@@ -111,12 +105,10 @@
         let output = document.getElementById('input');
         let btn_send = document.getElementById('send');
         let numArray = [];
-        let timesA=0;
-        let timesB=0;
+        let timesA=0,timesB=0;
         let compare_result;
         let historyDiv,historyTest,historyAB,answerResult;            
-        let compate=0;
-        let cheating=0;
+        let compate=0,cheating=0,abandonTimes=0;
         //開始按鈕
         btn_start.addEventListener('click', function(){
             reset();
@@ -140,10 +132,17 @@
         })
         //送出猜測值
         btn_send.addEventListener('click',function(){
-            clearTimes();
-            judgmentWay();
-            noRepeat()
-            historyContainer();
+            if(abandonTimes==1){
+                output.value=''
+                alert('您已認輸,請重新開始遊戲')
+                return clearTimes();
+            }
+            else{
+                clearTimes();
+                judgmentWay();
+                noRepeat();
+                historyContainer();
+            }
         })
         //亂數
         function randomNumber() {
@@ -175,6 +174,7 @@
                 answer.style.transform="scale(1)"
                 history.style.transform='scale(0)'
                 history.style.height='0px'
+                abandonTimes=1;
             }
             else{
                 alert('請先開始遊戲,再放棄')
@@ -224,13 +224,10 @@
                     historyAB.style.borderRadius='10px'                    
                     alert('恭喜您獲勝')
                 }
-                if(cheating!=0){
-                    // historyAB.style.backgroundColor='green'
-                    // historyAB.style.borderRadius='10px'                    
+                if(cheating!=0){                
                     alert('有沒有考慮不要作弊呢')
                     cheating=0
                 }
-
             }
             if(numArray.length!=4&&output.value.length!=4){
                 return alert('請先按開始,並輸入四個數字,再進行遊戲')
