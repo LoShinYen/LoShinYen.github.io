@@ -38,12 +38,23 @@
         .main-container{
             height: 400px;
         }
+        #gameRule{
+            display: inline-block;
+            height: 400px;
+            font-size: 30px;
+            transform: scale(1);
+            transition: .7s;
+        }
+        #gameRule p{
+            text-align: left;
+            color: #000;
+        }
         #history {
             display: inline-block;
             height: 400px;
             overflow: auto;
             font-size: 30px;
-            transform: scale(1);
+            transform: scale(0);
             transition: .7s;
         }
         #answer {
@@ -79,9 +90,20 @@
                 <div class="col-2 py-2">
                     <button class="btn  w-75" id="clearHistory">清空歷史</button>
                 </div>
+                <div class="col-2 py-2">
+                    <button class="btn  w-75" id="seeRule">看規則</button>
+                </div>
             </div>
         </div>
         <div class="main-container row">
+            <div class="col-12 py-2" id="gameRule">
+                <span >遊戲規則介紹</span>
+                <p class="px-5">1.遊戲開始時請先按開始遊戲,否則所有功能皆無法使用</p>
+                <p class="px-5">2.遊戲開始後會隨機產生4個0~9不重複之阿拉伯數字</p>
+                <p class="px-5">3.遊戲時請勿輸入重複之阿拉伯數字以及非阿拉伯數字以外之文字</p>
+                <p class="px-5">4.若您輸入之數字位置正確為A,位置錯誤但有包含在猜測數字之內則為B</p>
+                <p class="px-5">5.當您獲得4A時將贏得遊戲,若未達成還請繼續努力</p>
+            </div>
             <div class="col-12 py-2" id="history">我是歷史區</div>
             <div class="col-12 py-2 " id="answer">我是答案區</div>
         </div>
@@ -99,6 +121,8 @@
         let answer = document.getElementById('answer');
         let btn_abandon = document.getElementById('abandon');
         let clearHistory = document.getElementById('clearHistory')
+        let gameRule = document.getElementById('gameRule')
+        let seeRule = document.getElementById('seeRule')
         let history = document.getElementById('history')
         let output = document.getElementById('input');
         let btn_send = document.getElementById('send');
@@ -168,6 +192,7 @@
         //認輸
         function abandonWay(){
             if(numArray.length==4){
+                gameRule.style.height='0px';
                 answer.style.height='400px'
                 answer.style.transform="scale(1)"
                 history.style.transform='scale(0)'
@@ -243,6 +268,8 @@
             answer.innerText='我是答案區';
             history.innerText='我是歷史區';
             numArray=[];
+            gameRule.style.transform='scale(0)'
+            gameRule.style.height='0px'
             history.style.transform='scale(1)'
             history.style.height='400px'
             answer.style.height='0px'
@@ -266,6 +293,16 @@
                 return alert('請輸入4個數字')
             }
         }
+        //看規則
+        seeRule.addEventListener('click',function(){
+            answer.style.height='0px'
+            answer.style.transform="scale(0)"
+            history.style.transform='scale(0)'
+            history.style.height='0px'
+            gameRule.style.height='400px';
+            gameRule.style.transform='scale(1)';
+
+        })
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
