@@ -198,7 +198,11 @@
         })
         //送出猜測值
         btn_send.addEventListener('click',function(){
-            if(abandonTimes==1){
+            if(parseInt(input.value)!=input.value)
+            {
+                return alert('請輸入阿拉伯數字')
+            }
+            else if(abandonTimes==1){
                 output.value=''
                 alert('您已認輸,請重新開始遊戲')
                 return clearTimes();
