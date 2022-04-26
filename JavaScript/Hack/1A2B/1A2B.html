@@ -177,6 +177,7 @@
         let compare_result;
         let historyDiv,historyTest,historyAB,answerResult;            
         let compate=0,cheating=0,abandonTimes=0;
+        let repeat=true;
         //開始按鈕
         btn_start.addEventListener('click', function(){
             reset();
@@ -279,7 +280,10 @@
         }
         //動態產生元素
         function historyContainer(){
-            if(output.value.length==4&&compate==4){
+            if(repeat===false){
+                return 
+            }
+            else if(output.value.length==4&& repeat==true){
                 historyTest = document.createElement('p');
                 historyTest.innerText = output.value;
                 historyAB = document.createElement('p')
@@ -326,19 +330,15 @@
         }
         //重複數字
         function noRepeat(){
-            compate=0
-            for(let i =0;i<4;i++){
-                for(let j = 0;j<4;j++){
-                    if(output.value[i]==output.value[j]){
-                        compate+=1
-                    }
+            compate = Array.from(input.value)
+            for(let i = 0 ; i<compate.length;i++){
+                if(compate.indexOf(compate[i]) != compate.lastIndexOf(compate[i]) ){
+                    repeat=false;
+                    return alert('請勿輸入重複數字')
                 }
-            }
-            if(compate!==4&&output.value.length!=0){
-                alert('請勿輸入重複數字')
-            }
-            else if(output.value.length=0){
-                return alert('請輸入4個數字')
+                else{
+                    repeat =true;
+                }
             }
         }
         //看規則
