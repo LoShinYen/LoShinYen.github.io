@@ -45,6 +45,7 @@
             transform: scale(1);
             transition: .7s;
             overflow: auto;
+            animation: rule 1.7s;
         }
         #gameRule span{
             text-shadow: 3px 3px rgb(161 151 151 / 93%);
@@ -53,7 +54,21 @@
         #gameRule p{
             text-align: left;
             color: #000;
-            letter-spacing: 3   px;
+            letter-spacing: 3px;
+        }
+        @keyframes rule{
+            0%{
+                transform: scale(0);
+            }
+            80%{
+                transform: scale(1.2);
+            }
+            90%{
+                transform: scale(0.8);
+            }
+            100%{
+                transform: scale(1);
+            }
         }
         #history {
             display: inline-block;
@@ -144,11 +159,13 @@
         <div class="main-container row">
             <div class="col-12 py-2" id="gameRule">
                 <span >遊戲規則介紹</span>
-                <p class="px-5">1.遊戲開始時請先按開始遊戲,否則所有功能皆無法使用。</p>
-                <p class="px-5">2.遊戲開始後會隨機產生4個0~9不重複之阿拉伯數字。</p>
-                <p class="px-5">3.遊戲時請勿輸入重複之阿拉伯數字以及非阿拉伯數字以外之文字。</p>
-                <p class="px-5">4.若您輸入之數字位置正確為A,位置錯誤但有包含在猜測數字之內則為B。</p>
-                <p class="px-5">5.當您獲得4A時將贏得遊戲,若未達成還請繼續努力。</p>
+                <div class="rule-data">
+                    <p class="px-5 ">1.遊戲開始時請先按開始遊戲,否則所有功能皆無法使用。</p>
+                    <p class="px-5">2.遊戲開始後會隨機產生4個0~9不重複之阿拉伯數字。</p>
+                    <p class="px-5">3.遊戲時請勿輸入重複之阿拉伯數字以及非阿拉伯數字以外之文字。</p>
+                    <p class="px-5">4.若您輸入之數字位置正確為A,位置錯誤但有包含在猜測數字之內則為B。</p>
+                    <p class="px-5">5.當您獲得4A時將贏得遊戲,若未達成還請繼續努力。</p>
+                </div>
             </div>
             <div class="col-12 py-2" id="history">我是歷史區</div>
             <div class="col-12 py-2 " id="answer">我是答案區</div>
@@ -294,6 +311,8 @@
                 historyAB.style.color='white'
                 historyAB.style.padding='0px 5px'
                 historyDiv.setAttribute('class','d-flex text-center justify-content-center')
+                historyAB.style.animation='inputAn 1s';
+                h
                 if(timesA!=4){
                     historyAB.style.backgroundColor='red'
                     historyAB.style.borderRadius='10px'                    
