@@ -27,9 +27,6 @@
 <body>
     <div class="container text-center mt-5 w-50 py-4">
         <div class="row">
-            <div class="col-12  px-4 calculateText">
-                <input type="text" id="calculate" value="" class="w-100 my-3"></input>
-            </div>
             <div class=" col-12  px-4 input_boxText">
                 <input type="text" id="input_box" value="" class="w-100 my-3">
             </div>
@@ -105,7 +102,6 @@
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script>
-        let calculate =document.getElementById('calculate');
         let output = document.getElementById('input_box');
         let btnNum = document.querySelectorAll('.num');
         let clear = document.getElementById('clear');
@@ -118,17 +114,21 @@
         let divisor = document.getElementById('divisor');
         let equal =document.getElementById('equal');
         let percentage = document.getElementById('percentage')
+        let calculate;
         let points;
         let times=true;
-        let tem;
         //point只能輸出一次
         point.addEventListener('click',function(){
-            if(output.value.includes('.')==false){
-                return output.value +=point.innerText
+            if(output.value.includes('.')==false && times==true){
+                output.value +=point.innerText
+                times=false;
             }
-            else if(output.value.includes('.')==true){
+            else if (times==false){
                 alert('請勿重複輸入小數點')
-                return
+            }
+            else if (times == true){
+                output.value +=point.innerText
+                times=false;
             }
         })
         //將num資料傳輸置output
@@ -146,37 +146,15 @@
         calculationSymbol.forEach((item,index)=>{
             calculationSymbol[index].addEventListener('click',function(){
                 output.value += calculationSymbol[index].innerText
-                calculate.value = output.value
-                output.value =''
                 times=true
+                if(calculationSymbol[index] == '*' || calculationSymbol[index] == '/'){
+                }
             })
         })
         //運算
         equal.addEventListener('click',function(){
-            if(times){
-                calculate.value += output.value 
-                tem = output.value
-                output.value = eval(calculate.value)
-                times=false
-            }
-            else if(times!==true){
-                if(calculate.value.includes(calculationSymbol[0].innerText)==true )
-                {
-                    return  output.value= parseFloat(output.value)+parseFloat(tem)
-                }
-                else if(calculate.value.includes(calculationSymbol[1].innerText)==true )
-                {
-                    return  output.value= parseFloat(output.value)-parseFloat(tem)
-                }
-                else if(calculate.value.includes(calculationSymbol[2].innerText)==true )
-                {
-                    return  output.value= parseFloat(output.value)*parseFloat(tem)
-                }
-                else if(calculate.value.includes(calculationSymbol[3].innerText)==true )
-                {
-                    return  output.value= parseFloat(output.value)/parseFloat(tem)
-                }
-            }
+                output.value = eval(output.value);
+                times=true ;
         })
         //移除單一
         remove.addEventListener('click',function(){
