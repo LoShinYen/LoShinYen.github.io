@@ -131,6 +131,12 @@
                 output.value +=point.innerText
                 pointsTimes=false;
             }
+            if(newCalculation==false){
+                output.value=''
+                output.value +=point.innerText
+                debugger
+                newCalculation=true
+            }
         })
         //將num資料傳輸置output
         btnNum.forEach((item,index)=>{
