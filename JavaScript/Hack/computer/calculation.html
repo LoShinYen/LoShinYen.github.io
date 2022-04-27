@@ -116,24 +116,30 @@
         let percentage = document.getElementById('percentage')
         let calculate;
         let points;
-        let times=true;
+        let pointsTimes=true;
+        let newCalculation=true;
         //point只能輸出一次
         point.addEventListener('click',function(){
             if(output.value.includes('.')==false && times==true){
                 output.value +=point.innerText
-                times=false;
+                pointsTimes=false;
             }
-            else if (times==false){
+            else if (pointsTimes==false){
                 alert('請勿重複輸入小數點')
             }
-            else if (times == true){
+            else if (pointsTimes == true){
                 output.value +=point.innerText
-                times=false;
+                pointsTimes=false;
             }
         })
         //將num資料傳輸置output
         btnNum.forEach((item,index)=>{
             btnNum[index].addEventListener('click',function(){
+                if(newCalculation==false)
+                {
+                    output.value=''
+                    newCalculation=true
+                }
                 output.value += btnNum[index].innerText 
             })
         })
@@ -146,13 +152,14 @@
         calculationSymbol.forEach((item,index)=>{
             calculationSymbol[index].addEventListener('click',function(){
                 output.value += calculationSymbol[index].innerText
-                times=true
+                pointsTimes=true
             })
         })
         //運算
         equal.addEventListener('click',function(){
                 output.value = eval(output.value);
-                times=true ;
+                pointsTimes=true ;
+                newCalculation=false;
         })
         //移除單一
         remove.addEventListener('click',function(){
