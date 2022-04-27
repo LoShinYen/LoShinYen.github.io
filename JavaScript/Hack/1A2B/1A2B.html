@@ -232,7 +232,7 @@
                 return clearTimes();
             }
             else{
-                ScreenYransform("scale(0)","0","scale(1)",'400px',"scale(0)","0")
+                ScreenTransform("scale(0)","0","scale(1)",'400px',"scale(0)","0")
                 clearTimes();
                 judgmentWay();
                 noRepeat();
@@ -267,7 +267,7 @@
         //認輸
         function abandonWay(){
             if(numArray.length==4){
-                ScreenYransform("scale(0)","0","scale(0)","0","scale(1)",'400px')
+                ScreenTransform("scale(0)","0","scale(0)","0","scale(1)",'400px')
                 abandonTimes=1;
             }
             else{
@@ -342,7 +342,7 @@
             answer.innerText='我是答案區';
             history.innerText='我是歷史區';
             numArray=[];
-            ScreenYransform("scale(0)","0","scale(1)",'400px',"scale(0)","0")
+            ScreenTransform("scale(0)","0","scale(1)",'400px',"scale(0)","0")
             cheating=0;
             abandonTimes=0;
         }
@@ -361,10 +361,10 @@
         }
         //看規則
         seeRule.addEventListener('click',function(){
-            ScreenYransform("scale(1)",'400px',"scale(0)","0","scale(0)","0")
+            ScreenTransform("scale(1)",'400px',"scale(0)","0","scale(0)","0")
             output.focus();
         })
-        function ScreenYransform(rTS,rH,hTS,hH,anTS,aH){
+        function ScreenTransform(rTS,rH,hTS,hH,anTS,aH){
             gameRule.style.transform=rTS
             gameRule.style.height=rH
             history.style.transform=hTS
