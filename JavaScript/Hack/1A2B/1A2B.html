@@ -318,7 +318,8 @@
                 }
                 else if(timesA=4){
                     historyAB.style.backgroundColor='green'
-                    historyAB.style.borderRadius='10px'                    
+                    historyAB.style.borderRadius='10px'
+                    btn_send.setAttribute('disabled','disabled')                    
                     alert('恭喜您獲勝')
                 }
                 if(cheating!=0){                
@@ -345,6 +346,7 @@
             ScreenTransform("scale(0)","0","scale(1)",'400px',"scale(0)","0")
             cheating=0;
             abandonTimes=0;
+            btn_send.removeAttribute('disabled')
         }
         //重複數字
         function noRepeat(){
