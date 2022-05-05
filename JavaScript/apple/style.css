@@ -1,0 +1,303 @@
+.headerNav{
+    background-color: #000;
+    display: flex;
+}
+.logo h1{
+    transform: scale(0);
+    display: inline-block;
+}
+.logo i {
+    color: #fff;
+    font-size: 20px;
+}
+.productNav{
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.862);
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+    top: 0px;
+    position: sticky;
+    box-sizing: border-box;
+}
+#menu_control{
+    display: none;
+}
+section{
+    transform: scale(0);
+}
+.main-product{
+    display: flex;
+    transition: 0.5s;
+}
+.picture {
+    width: 50%;
+}
+.commodityDatal{
+    width: 50%;
+}
+.commodityPicture{
+    position: sticky;
+    top:20px;
+}
+.screenTitle,
+.SpecificationTitle,
+.selectColorTitle,
+.networkTitle {
+    width: 100%;
+    transition: 0.5s;
+    margin: 10px 0px;
+}
+.selectColorData,
+.SpecificationData,
+.screenData,
+.networkTitleData {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    transition: 0.5s;
+}
+/* 動態CSS */
+
+.font-weight{
+    font-weight: 700;
+}
+.btn-screen{
+    height: 40px;
+    margin: 10px 0px;
+}
+.btn-color {
+    width: 100%;
+    height: 60px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    background-color: #fff;
+}
+.color-div{
+    text-align: center;
+}
+.btn-color:hover,.color-div:hover{
+    border: 1px solid rgb(56, 155, 241);
+}
+/*  */
+@media screen and (max-width:767.9px) {
+    .headerNav{
+        height: 30px;
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 10px;
+    }
+    .logo {
+        padding-top: 5px;
+    }
+    .btnSeverse{
+        position: absolute;
+        top: 30px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        transform: scale(0);
+        transition: 0.5s;
+        background-color: #eee;
+        text-align: left;
+        z-index: 2;
+        overflow:hidden;
+    }
+    .btnSeverse button{
+        margin: 10px;
+        display: block;
+        border: 0px;
+        background-color: transparent ;
+        border-bottom: 1px  rgb(56, 155, 241);
+    }
+    .hb{
+        position: relative;
+        transition: 1s;
+        width: 20px;
+    }
+    .hb span{
+        display: inline-block;
+        border: 1px solid #fff;
+        color: #fff;
+        position: absolute;
+        width: 20px;
+        height: 1px;
+        top: 12px;
+    }
+    .hb span:nth-child(1){
+        transform: translate(0,10px);
+        transition: 1s;
+    }
+    .hb span:nth-child(3){
+        transform: translate(0,-10px);
+        transition: 1s;
+    }
+    #menu_control:checked ~ .container .btnSeverse {
+        transform: scale(1);
+        transition: 1s;
+    }
+    #menu_control:checked ~ .container .hb{
+        transform: rotate(360deg);
+        transition: 1s;
+    }
+    #menu_control:checked ~ .container .hb span:nth-child(1){
+        transform: rotate(45deg);
+        transition: 1s;
+    }
+    #menu_control:checked ~ .container .hb span:nth-child(2){
+        transform: scale(0);
+        transition: 1s;
+    }
+    #menu_control:checked ~ .container .hb span:nth-child(3){
+        transform: rotate(-45deg);
+        transition: 1s;
+    }
+    .productNav{
+        padding: 5px 10px ;
+    }
+    section{
+        padding: 10px 10px;
+    }
+    .picture{
+        z-index: -1;
+    }
+    .commodityDatal{
+        padding-left: 10px;
+    }
+    .commodityPicture{
+        top:30px;
+    }
+    #productImg{
+        width: 100%;
+    }
+    .product-img{
+        width: 45%;
+    }
+    .title h2 {
+        font-size: 17px;
+    }
+    .screen,.selectColor,.Specification,.network{
+        padding: 20px 0px;
+    }
+    /* 動態  */
+    .btn-color-width{
+        width: 50%;
+    }
+    .color-div{
+        width: 100%;
+        margin: 5px;
+        border: 2px solid #eee;
+        border-radius: 10px;
+        box-sizing: border-box;
+    }
+    .GB-BTN{
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    /*  */
+}
+@media screen and (min-width:768px) {
+    .headerNav {
+        height: 30px;
+        padding: 10px 50px;
+    }
+    .logo {
+        margin-right: 10px;
+    }
+    .btnSeverse button {
+        background-color: #000;
+        color: #fff;
+        border: 0px;
+        border-radius: 20px;
+    }
+    .btnSeverse button:hover,
+    .logo i:hover {
+        background-color: rgb(69, 69, 69);
+        color: #eee;
+    }
+    .productNav{
+        height: 50px;
+    }
+    .navTitle{
+        padding: 20px 0px;
+        text-align: center;
+        box-sizing: border-box;
+    }
+    .navPrice{
+        padding: 20px 0px;
+        text-align: center;
+        box-sizing: border-box;
+    }
+    section {
+        padding: 0px 50px;
+    }
+    .picture img {
+        margin: auto;
+        max-width: 100%;
+    }
+    .picture .icon {
+        display: flex;
+        justify-content: space-around;
+    }
+    .commodityDatal {
+        padding: 0 15% 0 10%;
+    }
+    .iconText {
+        display: flex;
+        justify-content: center;
+    }
+    .iconText span {
+        display: block;
+    }
+    .title {
+        margin-bottom: 40px;
+    }
+    .title h2 {
+        font-size: 35px;
+    }
+    .selectColor,
+    .network,
+    .Specification,
+    .screen {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        text-align: center;
+        transition: 0.5s;
+        margin-bottom: 10px;
+        height: auto;
+    }
+    .selectColorSpan,.SpecificationSpan,.networkSpan{
+        width: 100%;
+    }
+    .product-img{
+        width: 30%;
+        margin: 15px;
+    }
+    /* 動態 */
+    .Span-border{
+        border:1px #000;
+        border-width: 1px;
+        text-align: center;
+        padding: 10px 0px;
+    }
+    .product-span{
+        width: 100%;
+        font-size: 20px;
+        font-weight: 700;
+        height: auto;
+        border:1px #000;
+    }
+    .color-div{
+        width: 45%;
+        margin: 5px;
+        border: 2px solid #eee;
+        border-radius: 10px;
+    }
+    .GB-BTN{
+        width: 45%;
+        margin: 5px;
+    }
+    /*  */
+}

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/bb2cebfb58.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Apple</title>
+</head>
+<body>
+    <input type="checkbox" id="menu_control">
+    <div class="container">
+        <header>
+            <nav class="headerNav">
+                <div class="logo">
+                    <a href="#">
+                        <i class="fa-brands fa-apple"></i> 
+                        <h1>apple</h1>
+                    </a>
+                </div>
+                <div class="btnSeverse">
+                    <button id="ipadPor" >ipadPor</button>
+                    <button id="iphone_13_Pro">iphone 13 Pro</button>
+                    <button id="">xxxx</button>
+                    <button id="">xxxx</button>
+                </div>
+                <label for="menu_control" class="hb">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                </div>
+            </nav>
+        </header>
+        <section>
+            <nav class="productNav">
+                <div class="navTitle"></div>
+                <div class="navPrice"></div>
+            </nav>
+            <div class="main-product">
+                <div class="picture">
+                    <div class="commodityPicture">
+                        <img src="" id="productImg">
+                    </div>
+                </div>
+                <div class="commodityDatal">
+                    <div class="title">
+                        <h2 id="titleH2"></h2>
+                    </div>
+                    <div id="screen">
+                        <div class="screenTitle"></div>
+                        <div class="screenSpan"></div>
+                        <div class="screenData"></div>
+                    </div>
+                    <div class="selectColor">
+                        <div class="selectColorTitle"></div>
+                        <div class="selectColorSpan"></div>
+                        <div class="selectColorData"></div>
+                    </div>
+                    <div class="Specification">
+                        <div class="SpecificationTitle"></div>
+                        <div class="SpecificationSpan"></div>
+                        <div class="SpecificationData"></div>
+                    </div>
+                    <div class="network">
+                        <div class="networkTitle"></div>
+                        <div class="networkSpan"></div>
+                        <div class="networkTitleData"></div>
+                    </div>
+                    <div id="price">
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+    <script>
+        //
+        let arry,productKeys,productValues;
+        //
+        let commodityDatal,section,productImg,titleH2
+        //nav
+        let btn_iPadPro,iphone_13_Pro
+        //
+        let navTitle,navPrice
+        //colorbtn
+        let btn_color,selectColor,selectColorTitle,selectColorData,selectColorSpan
+        //screenbtn
+        let screen,screenTitle,screenSpan,screenData
+        //Specification
+        let Specification,SpecificationSpan,SpecificationTitle,SpecificationData
+        //network
+        let network,networkTitle,networkSpan,networkTitleData
+        //price
+        let price
+        //json
+        const url = "https://raw.githubusercontent.com/LoShinYen/FileStorage/main/try"
+        let xhr =new XMLHttpRequest();
+        window.onload=function(){
+            //navBtn
+            btn_iPadPro=document.getElementById('ipadPor');
+            iphone_13_Pro = document.getElementById('iphone_13_Pro')
+            section=document.querySelector('section')
+            //
+            navTitle = document.querySelector('.navTitle')
+            navPrice = document.querySelector('.navPrice')
+            //title
+            commodityDatal=document.querySelector('.commodityDatal');
+            titleH2=document.getElementById('titleH2')
+            // pic
+            productImg=document.getElementById("productImg")
+            //screen
+            screen=document.getElementById('screen')
+            screenTitle = document.querySelector('.screenTitle')
+            screenSpan = document.querySelector('.screenSpan')
+            screenData = document.querySelector('.screenData')
+            //colorBtn
+            selectColor = document.querySelector('.selectColor')
+            selectColorTitle =document.querySelector('.selectColorTitle')
+            selectColorSpan = document.querySelector('.selectColorSpan')
+            selectColorData = document.querySelector('.selectColorData')
+            //Specification
+            Specification = document.querySelector('.Specification')
+            SpecificationTitle =document.querySelector('.SpecificationTitle')
+            SpecificationSpan =document.querySelector('.SpecificationSpan')
+            SpecificationData =document.querySelector('.SpecificationData')
+            //network
+            network = document.querySelector('.network')
+            networkTitle = document.querySelector('.networkTitle')
+            networkSpan = document.querySelector('.networkSpan')
+            networkTitleData = document.querySelector('.networkTitleData')
+            //
+            price = document.querySelector('.price')
+            reqwestJSON()
+        }
+        function reqwestJSON(){
+            xhr.onload=function(){
+                arry = JSON.parse(this.responseText)
+                productKeys = Object.keys(arry)
+                productValues =Object.values(arry)
+                //
+                btn_iPadPro.addEventListener('click',function()
+                {
+                    resert();
+                    section.style.transform='scale(1)'
+                    title("連線","外觀","儲存裝置","連線能力")
+                    navBtn(0);
+                    monitor(0);
+                    colorBtn(0);
+                    storage(0);
+                    networks(0);
+                    section.classList.add("font-weight")
+                    })
+                iphone_13_Pro.addEventListener('click',function(){
+                    resert();
+                    section.style.transform='scale(1)'
+                    title("選擇機型","選擇外觀","選擇儲存容量")
+                    networkTitle.innerHTML=''
+                    navBtn(1);
+                    monitor(1);
+                    colorBtn(1);
+                    storage(1);
+                })
+            }
+            xhr.open("GET",url);
+            xhr.send();
+        }
+        //title
+        function title(title1,title2,title3,title4){
+            //screen
+            screenTitle.innerHTML=`<h3 style="text-align:left">${title1}</h3>`
+            //color
+            selectColorTitle.innerHTML = `<h3 style="text-align:left">${title2}</h3>`
+            //Specification
+            SpecificationTitle.innerHTML= `<h3 style="text-align:left">${title3}</h3>`  
+            //wife
+            networkTitle.innerHTML=`<h3 style="text-align:left">${title4}</h3>`
+        }
+        //nav
+        function navBtn(N){
+            navTitle.innerHTML =`<p style="font-weight: 700">購買 ${productKeys[N]}</p>`
+            titleH2.innerText=`購買 ${productKeys[N]}`
+            productImg.setAttribute('src',productValues[N].presetProduct)
+            productImg.setAttribute('alt',productKeys[N])
+        }
+        //Screen
+        function monitor(N){
+            let span = document.createElement('span')
+            let ipadMonitor =productValues[N].Screen
+            ipadMonitor.forEach((screens,index)=>{
+                let btn = document.createElement('button')  
+                let p =document.createElement('p')
+                p.innerText = ipadMonitor[index]
+                btn.append(p);
+                screenData.append(btn);
+                screen.append(screenData);
+                btn.setAttribute('class','btn-screen btn-color ')
+                btn.addEventListener('click',function(){
+                    span.innerText=ipadMonitor[index];
+                    screenSpan.append(span);
+                    tranS(screenSpan,screenData,"auto","0px",'scale(1)','scale(0)')
+                })
+                screenSpan.addEventListener('click',function(){
+                    span.innerText='';
+                    tranS(screenSpan,screenData,"0px","auto",'scale(0)','scale(1)')
+                })
+            })
+            screenSpan.classList.add("Span-border")
+            span.classList.add("product-span")
+        }
+        //color 
+        function colorBtn(N){         
+            let ipadproColor =productValues[N].color
+            let ColorSrc = productValues[N].colorSrc
+            let span =document.createElement('span')
+            ipadproColor.forEach((color,index)=>{
+                let div = document.createElement('div')
+                let  img = document.createElement('img')
+                let p = document.createElement('p')
+                img.classList.add('product-img')
+                img.setAttribute("src",`${ColorSrc[index]}`)
+                p.innerText= ipadproColor[index]
+                div.append(img)
+                div.append(p)
+                selectColorData.append(div)
+                selectColor.append(selectColorData)
+                div.setAttribute('class','color-div') 
+                img.addEventListener('click',function(){
+                    let src = productValues[N].productImgSrc
+                    productImg.setAttribute('src',`${src[index]}`)
+                    span.innerText = ipadproColor[index]
+                    tranS(selectColorSpan,selectColorData,"auto","0px",'scale(1)','scale(0)')
+                    selectColorSpan.append(span)
+                })
+                selectColorSpan.addEventListener('click',function(){
+                    span.innerHTML=''
+                    tranS(selectColorSpan,selectColorData,"0px","auto",'scale(0)','scale(1)')
+                })
+            })
+            selectColorSpan.classList.add("Span-border")
+            span.classList.add("product-span")
+        }
+        //GB
+        function storage(N){
+            let spanGB
+            spanGB = document.createElement('span')
+            let strongGB = Object.keys(productValues[N].storage)
+            let StrongPrice = Object.values(productValues[N].storage)
+            Object.keys(productValues[N].storage).forEach((item,index)=>{
+                let div = document.createElement('div')
+                let btn = document.createElement('button')
+                btn.innerHTML = `${strongGB[index]} </br> NT$${StrongPrice[index]}`;
+                div.append(btn);
+                SpecificationData.append(btn);
+                Specification.append(SpecificationData);
+                btn.setAttribute('class','GB-BTN btn-color')
+                btn.addEventListener('click',function(){
+                    spanGB.innerText = strongGB[index]
+                    SpecificationSpan.append(spanGB)
+                    tranS(SpecificationSpan,SpecificationData,"auto","0px",'scale(1)','scale(0)')
+                    navPrice.innerText = `NT$ ${StrongPrice[index]}`
+                })
+                SpecificationSpan.addEventListener('click',function(){
+                    spanGB.innerText=''
+                    tranS(SpecificationSpan,SpecificationData,"0px","auto",'scale(0)','scale(1)')
+                })
+            })
+            SpecificationSpan.classList.add("Span-border")
+            spanGB.classList.add("product-span")
+        }
+        //wife
+        function networks(N){
+            let span = document.createElement('span')
+            let  ipadnetwork = productValues[N].network
+            ipadnetwork.forEach((item,index)=>{
+                let div = document.createElement('div');
+                let btn = document.createElement('button');
+                btn.innerText = ipadnetwork[index];
+                div.append(btn);
+                networkTitleData.append(div)
+                btn.setAttribute('class','btn-color')
+                div.classList.add('GB-BTN')
+                btn.addEventListener('click',function(){
+                    span.innerText=ipadnetwork[index]
+                    networkSpan.append(span)
+                    tranS(networkSpan,networkTitleData,"auto","0px",'scale(1)','scale(0)')
+                })
+                networkSpan.addEventListener('click',function(){
+                    span.innerText=''
+                    tranS(networkSpan,networkTitleData,"0px","auto",'scale(0)','scale(1)')
+                })
+            })
+            networkSpan.classList.add("Span-border")
+            span.classList.add("product-span")
+        }
+        //
+        function tranS(span,Data,height1,height2,scale1,scale2){
+            span.style.height=height1
+            span.style.transform=scale1
+            Data.style.transform=scale2
+            Data.style.height=height2
+        }
+        function resert(){
+            navTitle.innerText=''
+            screenTitle.innerText=''
+            screenSpan.innerText=''
+            screenData.innerText=''
+            selectColorTitle.innerText=''
+            selectColorSpan.innerText=''
+            selectColorData.innerText=''
+            SpecificationTitle.innerText=''
+            SpecificationSpan.innerText=''
+            SpecificationData.innerText=''
+            networkTitle.innerText=''
+            networkSpan.innerText=''
+            networkTitleData.innerText=''
+            tranS(screenSpan,screenData,"0px","auto",'scale(0)','scale(1)')
+            tranS(selectColorSpan,selectColorData,"0px","auto",'scale(0)','scale(1)')
+            tranS(SpecificationSpan,SpecificationData,"0px","auto",'scale(0)','scale(1)')
+            tranS(networkSpan,networkTitleData,"0px","auto",'scale(0)','scale(1)')
+        }
+    </script>
+</body>
+</html>
