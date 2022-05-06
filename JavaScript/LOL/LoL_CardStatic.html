@@ -2198,6 +2198,7 @@
         let colum=['名稱','介紹','連結網址'];
         container =  document.querySelector("#container");
         var list = container.querySelectorAll('.col-xl-3');
+        let times = 0
         window.onload = function () {
             btnCreateHeroArray = document.getElementById("createhero");
             btnListHero = document.getElementById("listhero");
@@ -2254,12 +2255,13 @@
                 JsonLol = JSON.parse(xhr.response)
                 jsonTitle = Object.values(JsonLol.data)
                 resultBtn.addEventListener('click',function(){
+                    container.innerText=''
                     heroArray.forEach((item,index)=>{
+                        
                         container.append(PictureText(item.cardimg,item.cardtitle,item.cardtext,index))
                     })
                 })
-                jsonTitle.forEach((item,index)=>{
-                })
+                times +=1
             }
             xhr.open("GET",url)
             xhr.send();
