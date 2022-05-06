@@ -73,7 +73,6 @@
         th:hover,td:hover{
             transform: scale(1.2);
             transition: 0.5s;
-            /* background-color:rgb(79, 77, 76) ; */
             color:red;
         }
     </style>
@@ -85,6 +84,7 @@
         <button class="btn btn-danger" id="createhero">從DOM建立英雄人物陣列資料後清除container</button>
         <button class="btn btn-warning" id="listhero">以文字迭代英雄人物資料</button>
         <button class="btn btn-primary" id="tablehero">以表格呈現英雄人物資料</button>
+        <button class="btn btn-primary" id="result">呈現圖表</button>
     </div>
     <div id="result"></div>
     <div id="container" class="row">
@@ -2114,14 +2114,19 @@
                 </div>
             </div>
         </div>
-    </div> <template id="cardTemplate">
+    </div> 
+    <template id="cardTemplate">
         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12" card-index="">
             <div class="card">
                 <div class="headshot"> <img class="card-img-top" src="~/images/hero.png" alt="..."> </div>
                 <div class="card-body">
                     <h5 class="card-title">Title</h5>
-                    <p class="card-text">Description</p> <a id="contentButton" href="#" class="btn btn-primary">詳細</a>
-                    <button id="videoButton" class="btn btn-danger">影片</button> <span id="tag1"
+                    <p class="card-text">Description</p> <a id="contentButton" href="#" class="btn btn-primary contentbtn"     data-toggle="modal"
+                    data-target="#contentModal">詳細</a>
+                    
+                    <button id="videoButton" class="btn btn-danger" 
+                    data-toggle="modal"data-target="#videoModal">影片</button> 
+                    <span id="tag1"
                         class="badge badge-success"></span> <span id="tag2" class="badge badge-info"></span>
                 </div>
             </div>
@@ -2135,7 +2140,8 @@
                     <h5 class="modal-title" id="contentModalLabel">Modal title</h5> <button type="button" class="close"
                         data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
                 </div>
-                <div class="modal-body"> <img src="" alt="">
+                <div class="modal-body"> 
+                    <img id="img" src="" alt="">
                     <p id="hp"></p>
                     <p id="movespeed"></p>
                     <p id="armor"></p>
@@ -2175,9 +2181,14 @@
     <script>
         let heroArray = [];
         let container;
+        let JsonLol
+        let contentButton = document.querySelectorAll('#contentButton')
+        let videoButton
         //建立全域變數
         let cardtitle,cardtext,cardimg;
         let btnCreateHeroArray, btnListHero, btnTableHero;
+        let resultBtn = document.getElementById('result')
+        let cardTemplate = document.getElementById('cardTemplate')
         //table變數
         let table = document.createElement('table');
         table.setAttribute("class", "table table-bordered table-striped table-dark");
@@ -2187,7 +2198,7 @@
         let colum=['名稱','介紹','連結網址'];
         container =  document.querySelector("#container");
         var list = container.querySelectorAll('.col-xl-3');
-        window.onload = function () {    
+        window.onload = function () {
             btnCreateHeroArray = document.getElementById("createhero");
             btnListHero = document.getElementById("listhero");
             btnTableHero = document.getElementById("tablehero");
@@ -2214,6 +2225,8 @@
                     p.innerText =`${item.cardtitle},${item.cardtext},${item.cardimg}`
                     container.appendChild(p)
                 })
+                console.log(heroArray)
+                // debugger
             });
             //建立table事件
             btnTableHero.addEventListener("click", function(){
@@ -2231,18 +2244,37 @@
                 container.innerHTML='';
                 herotable()
             });
+            LoLJson()     
+        }
+        const url = "/LOL/champion.json"
+        let xhr = new XMLHttpRequest;
+        let jsonTitle
+        function LoLJson(){
+            xhr.onload= function(){
+                JsonLol = JSON.parse(xhr.response)
+                jsonTitle = Object.values(JsonLol.data)
+                resultBtn.addEventListener('click',function(){
+                    heroArray.forEach((item,index)=>{
+                        container.append(PictureText(item.cardimg,item.cardtitle,item.cardtext,index))
+                    })
+                })
+                jsonTitle.forEach((item,index)=>{
+                })
+            }
+            xhr.open("GET",url)
+            xhr.send();
         }
         function heroArraryWay(){
             list.forEach((item,index) => {
-                    cardtitle =item.querySelector(".card-title").innerText;
-                    cardtext = item.querySelector(".card-text").innerText;
-                    cardimg =  item.querySelector("img").src;
-                    let hero={
-                        "cardtitle" : cardtitle,
-                        "cardtext"  : cardtext,
-                        "cardimg"   : cardimg
-                    }
-                    heroArray.push(hero);
+                cardtitle =item.querySelector(".card-title").innerText;
+                cardtext = item.querySelector(".card-text").innerText;
+                cardimg =  item.querySelector("img").src;
+                let hero={
+                    "cardtitle" : cardtitle,
+                    "cardtext"  : cardtext,
+                    "cardimg"   : cardimg
+                }
+                heroArray.push(hero);
             });
         }
         function herotable(){
@@ -2268,6 +2300,39 @@
                 table.append(tbody);
             })
             container.append(table);
+        }
+        function PictureText(cardimg,cardtitle,cardtext,index){
+                let cloneCard = cardTemplate.content.cloneNode(true)
+                cloneCard.querySelector("img").src = cardimg
+                cloneCard.querySelector("h5").innerText = cardtitle
+                cloneCard.querySelector("p").innerText = cardtext
+                cloneCard.querySelector("a").addEventListener('click',function(){
+                        textdecrise(
+                        jsonTitle[index].name,
+                        `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${jsonTitle[index].id}_0.jpg`,
+                        jsonTitle[index].stats.hp,
+                        jsonTitle[index].stats.movespeed,
+                        jsonTitle[index].stats.armor,
+                        jsonTitle[index].stats.spellblock,
+                        jsonTitle[index].stats.attackrange
+                        )
+                })
+                cloneCard.querySelector("button").addEventListener('click',function(){
+                    video()
+                })
+                return cloneCard
+        }
+        function textdecrise(title,src,hp,movespeed,armor,spellblock,attackrange){
+            contentModal.querySelector('#contentModalLabel').innerText = `${title}`
+            contentModal.querySelector("#img").src = src 
+            contentModal.querySelector('#hp').innerText=`hp : ${hp}`
+            contentModal.querySelector('#movespeed').innerText=`movespeed : ${movespeed}`
+            contentModal.querySelector('#armor').innerText=`armor : ${armor}`
+            contentModal.querySelector('#spellblock').innerText=`spellblock : ${spellblock}`
+            contentModal.querySelector('#attackrange').innerText=`attackrange : ${attackrange}`
+        }
+        function video(){
+            videoModal.querySelector('iframe').src = "https://www.youtube.com/embed/hlalkAUkwqE"
         }
     </script>
 </body>
