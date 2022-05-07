@@ -13,6 +13,7 @@
         }
         header{
             background-color: rgb(95, 95, 95);
+            /* position: relative; */
         }
         nav{
             position: fixed;
@@ -25,20 +26,34 @@
         }
         .container{
             font-size: 12px;
-            /* margin-top: 60px; */
             padding-top: 60px;
-            overflow: hidden;
         }
-        /* .card-Transform0{
-            transform: scale(0);
-        }.card-Transform1{
-            transform: scale(1);
-        } */
         .cardArea{
             display: flex;
             flex-wrap: wrap;
             width: 100% ;
-            overflow: hidden;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            transition: 1s;
+        }
+        .heroList{
+            width: 100%;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            transition: 1s;
+        }
+        .heroTable{
+            text-align: center;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            transition: 1s;
         }
         .card-body{
             display: flex;
@@ -57,16 +72,39 @@
             transform: scale(1.1);
             z-index: 2;
             border: 2px solid #faf;
-            
         }
+        .heroTRStyle:hover{
+            transform: scale(1.01);
+            transition: 0.5s;
+            background-color: #000;
+        }
+        /* RWD考完再做 */
+        /* #menu_control{
+            display: none;
+        }
+        .navControl{
+            transform: translateX(200%);
+            overflow: hidden;
+        } */
+        /* @media screen and (max-width:767.9px) {
+            nav{
+                position: absolute;
+            }
+        } */
     </style>
 </head>
 <body>
+    <!-- <input type="textbox" name="" id="menu_control"> -->
     <header class="">
         <nav class="d-flex justify-content-around">
             <button id="heroTextBtn" class=" btn btn-primary w-25 my-2 ">以文字跌代英雄人物資料</button>
             <button id="heroTableBtn" class=" btn btn-primary w-25 my-2 ">以表格呈現英雄人物資料</button>
             <button id="resetBtn" class=" btn btn-primary w-25 my-2 ">重置LoL資料</button>
+            <!-- <label for="menu_control" class="navControl">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label> -->
         </nav>
     </header>
     <div class="container"></div>
@@ -179,6 +217,7 @@
                         li.setAttribute('class','heroListStyle')
                 })
                 container.append(heroList)
+
                 timesList+=1
                 }
             })
@@ -212,6 +251,7 @@
                         tr.setAttribute('class','heroTRStyle')
                     })
                 container.append(heroTable)
+                
                 timesTable+=1
                 }
                 
@@ -273,14 +313,13 @@
         
         function cardTransform(card,list,table){
             cardArea.style.transition='1s'
-            cardArea.style.position="absolute"
             heroList.style.transition='1s'
-            heroList.style.position="absolute"
             heroTable.style.transition='1s'
-            heroTable.style.position="absolute" 
             cardArea.style.transform= `scale(${card})`
             heroList.style.transform=`scale(${list})`
             heroTable.style.transform=`scale(${table})`
+            heroList.setAttribute('class','heroList')
+            heroTable.setAttribute('class','heroTable')
         }
     </script>
 
