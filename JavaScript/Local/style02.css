@@ -1,0 +1,51 @@
+.container{
+    border: 1px solid #eee;
+}
+.sendContainer{
+    position: sticky ;
+    z-index: 2;
+    top: 0px;
+}
+#inputText{
+    border-radius: 10px;
+}
+#send{
+    width: 10%;
+    border-radius: 10px;
+}
+.card{
+    border: 1px solid #000;
+    display: flex;
+    justify-content: space-around ;
+}
+.histroy{
+    width: 70%;
+}
+#TemplateInput{
+    background-color: #e9ecef ;
+    border: 0px;
+    text-align: left;
+    width: 100%;
+}
+.btn_appear{
+    display: block;
+}
+#edit,#save,#delete{
+    z-index: 0 ;
+    width: 33%;
+}
+.btn_transformDisplay{
+    transform: scale(0);
+    transition: 1s;
+    position: absolute !important;
+    height: 0;
+
+}
+.btn_transformAppear{
+    transform: scale(1);
+    transition: 1s;
+    position: absolute !important;
+}
+.edit_color{
+    background-color: #fff !important;
+}
